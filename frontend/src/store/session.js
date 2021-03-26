@@ -57,6 +57,15 @@ export const signup = (user) => async (dispatch) => {
 	return response;
 };
 
+// Logout Thunk
+export const logout = () => async (dispatch) => {
+	const response = await csrfFetch("/api/session", {
+		method: "DELETE",
+	});
+	dispatch(resetUser());
+	return response;
+};
+
 // Reducer
 const initialState = { user: null };
 
