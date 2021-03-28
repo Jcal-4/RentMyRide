@@ -43,33 +43,12 @@ router.post(
 		});
 	})
 );
-// Login Test
-// fetch("/api/session", {
-// 	method: "POST",
-// 	headers: {
-// 		"Content-Type": "application/json",
-// 		"XSRF-TOKEN": `LOgDHxUS-6-4GAPdqvAD-3f_k47_b9edHeYs`,
-// 	},
-// 	body: JSON.stringify({ credential: "Demo-lition", password: "password" }),
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => console.log(data));
 
 // Log out *********************************************************
 router.delete("/", (_req, res) => {
 	res.clearCookie("token");
 	return res.json({ message: "success" });
 });
-// Delete Test
-// fetch("/api/session", {
-// 	method: "DELETE",
-// 	headers: {
-// 		"Content-Type": "application/json",
-// 		"XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`,
-// 	},
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => console.log(data));
 
 // Restore Session User *******************************************
 router.get("/", restoreUser, (req, res) => {

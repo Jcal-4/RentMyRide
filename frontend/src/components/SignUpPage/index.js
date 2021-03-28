@@ -34,6 +34,7 @@ function SignupFormPage() {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<style type="text/css">{`.navbar {display: none}`}</style>
 			<ul>
 				{errors.map((error, idx) => (
 					<li key={idx}>{error}</li>

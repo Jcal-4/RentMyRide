@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormPage() {
@@ -13,8 +13,8 @@ function LoginFormPage() {
 
 	if (sessionUser) return <Redirect to="/" />; // if there is a logged in user then redirect home
 
-  // We handle our form submission with this function that will prevent default
-  // and will check if there are errors. If no errors then it will dispatch the thunk
+	// We handle our form submission with this function that will prevent default
+	// and will check if there are errors. If no errors then it will dispatch the thunk
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setErrors([]);
@@ -26,35 +26,59 @@ function LoginFormPage() {
 		);
 	};
 
-  // in the display there will be a form which will map through errors if there are any errors
-  // there will be an input to enter a credential (email or username) onChange same for a password
+	// in the display there will be a form which will map through errors if there are any errors
+	// there will be an input to enter a credential (email or username) onChange same for a password
 	return (
-		<form onSubmit={handleSubmit}>
-			<ul>
-				{errors.map((error, idx) => (
-					<li key={idx}>{error}</li>
-				))}
-			</ul>
-			<label>
-				Username or Email
-				<input
-					type="text"
-					value={credential}
-					onChange={(e) => setCredential(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Password
-				<input
-					type="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-			</label>
-			<button type="submit">Log In</button>
-		</form>
+		<div className="background__login">
+			<div className="loginForm">
+				<form onSubmit={handleSubmit}>
+					<style type="text/css">{`.navbar {display: none}`}</style>
+					<ul>
+						{errors.map((error, idx) => (
+							<li key={idx}>{error}</li>
+						))}
+					</ul>
+					<div>
+						<div>
+							<label>Username</label>
+						</div>
+
+						<input
+							type="text"
+							value={credential}
+							onChange={(e) => setCredential(e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<div>
+							<label>Password</label>
+						</div>
+						<input
+							type="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="loginButton">
+						<button type="submit">Log In</button>
+					</div>
+					<div className="logRedirects">
+						<div className="homeButton__login">
+							<NavLink to="/" className="homeButton__login">
+								Home
+							</NavLink>
+						</div>
+						<div className="signupButton__login">
+							<NavLink to="/signup" className="signupButton__login">
+								Signup
+							</NavLink>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	);
 }
 
