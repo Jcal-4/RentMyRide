@@ -15,7 +15,7 @@
 
 .logRedirects {
 	display: flex;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -25,11 +25,12 @@
 .loginButton {
 	display: flex;
 	justify-content: center;
-	border: 1px solid black;
+	/* border: 1px solid black; */
+  margin-top: 10px;
 }
 
 .background__login {
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .homeButton__login,

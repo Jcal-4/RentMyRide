@@ -42,7 +42,6 @@ function LoginFormPage() {
 						<div>
 							<label>Username</label>
 						</div>
-
 						<input
 							type="text"
 							value={credential}
