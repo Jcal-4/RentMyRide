@@ -32,15 +32,43 @@ module.exports = (sequelize, DataTypes) => {
 					len: [60, 60],
 				},
 			},
+			firstName: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			lastName: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			about: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			city: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			state: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			address: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			profileImageUrl: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 		},
 		{
 			defaultScope: {
-				// when querying these will be exempt from showing up
 				attributes: {
 					exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
 				},
 			},
 			scopes: {
+				// when querying these will be exempt from showing up
 				currentUser: {
 					attributes: { exclude: ["hashedPassword"] },
 				},
