@@ -1,7 +1,6 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
 
@@ -33,50 +32,75 @@ function SignupFormPage() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<ul>
-				{errors.map((error, idx) => (
-					<li key={idx}>{error}</li>
-				))}
-			</ul>
-			<label>
-				Email
-				<input
-					type="text"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Username
-				<input
-					type="text"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Password
-				<input
-					type="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Confirm Password
-				<input
-					type="password"
-					value={confirmPassword}
-					onChange={(e) => setConfirmPassword(e.target.value)}
-					required
-				/>
-			</label>
-			<button type="submit">Sign Up</button>
-		</form>
+		<div className="signUpForm">
+			<form onSubmit={handleSubmit}>
+				<style type="text/css">{`.navbar {display: none}`}</style>
+				<ul>
+					{errors.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
+				<div className="email__signup">
+					<div>
+						<label>Email</label>
+					</div>
+					<input
+						type="text"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<div>
+						<label>Username</label>
+					</div>
+					<input
+						type="text"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<div>
+						<label>Password</label>
+					</div>
+					<input
+						type="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<div>
+						<label>Confirm Password</label>
+					</div>
+					<input
+						type="password"
+						value={confirmPassword}
+						onChange={(e) => setConfirmPassword(e.target.value)}
+						required
+					/>
+				</div>
+				<div className="signUpButton__signup">
+					<button type="submit">Sign Up</button>
+				</div>
+				<div className="logRedirects">
+					<div className="homeButton__signup">
+						<NavLink to="/" className="homeButton__login">
+							Home
+						</NavLink>
+					</div>
+					<div className="signupButton__signup">
+						<NavLink to="/login" className="signupButton__login">
+							Login
+						</NavLink>
+					</div>
+				</div>
+			</form>
+		</div>
 	);
 }
 

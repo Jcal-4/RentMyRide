@@ -1,0 +1,40 @@
+.loginForm {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60vh;
+	width: 350px;
+	border: 1px solid black;
+	position: relative;
+	left: 550px;
+	margin-top: 125px;
+	box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+	border-radius: 3px;
+}
+
+.logRedirects {
+	display: flex;
+	/* border: 1px solid black; */
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  margin-top: 15px;
+}
+
+.loginButton {
+	display: flex;
+	justify-content: center;
+	/* border: 1px solid black; */
+  margin-top: 10px;
+}
+
+.background__login {
+	/* border: 1px solid black; */
+}
+
+.homeButton__login,
+.signupButton__login {
+	text-decoration: none;
+  padding: 10px;
+}
