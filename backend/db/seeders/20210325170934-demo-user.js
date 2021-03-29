@@ -20,6 +20,19 @@ module.exports = {
 					profileImageUrl:
 						"https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png",
 				},
+				{
+					email: " something@mail.com",
+					username: "something",
+					hashedPassword: bcrypt.hashSync("password"),
+					firstName: "Bat",
+					lastName: "Man",
+					about: "Batmobile is ready to be rented",
+					city: "New York",
+					state: "New York",
+					address: "675 Water St",
+					profileImageUrl:
+						"https://i.pinimg.com/originals/46/00/57/46005760e0544bcadaaee9b92387e8b8.png",
+				},
 				// {
 				// 	email: faker.internet.email(),
 				// 	username: "FakeUser1",

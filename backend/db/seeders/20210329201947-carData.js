@@ -21,8 +21,6 @@ module.exports = {
 					electric: "no",
 					autonomous: "no",
 					roadsideAssistance: "yes",
-					createdAt: new Date(),
-					updatedAt: new Date(),
 				},
 			],
 			{}
