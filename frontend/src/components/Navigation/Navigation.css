@@ -1,9 +1,14 @@
+body {
+  margin: 0px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   padding: 0px 10px 0px 10px;
   align-items:center;
-  position: sticky
+  position: sticky;
+  border: 1px solid black;
 }
 
 .navLinks {
