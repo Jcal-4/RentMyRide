@@ -11,6 +11,7 @@ const { ValidationError } = require("sequelize");
 
 // Routes
 const routes = require("./routes");
+const carRouter = require('./routes/api/cars')
 
 const app = express();
 app.use(morgan("dev")); //middleware for logging information about requests and responses
@@ -41,7 +42,7 @@ app.use(
 		},
 	})
 );
-
+app.use('/api', carRouter)
 app.use(routes); // Connect all the routes
 
 // Error handling middleware****************************************

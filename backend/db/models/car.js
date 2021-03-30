@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
 	const Car = sequelize.define(
 		"Car",
 		{
-			cityId: { type: DataTypes.INTEGER, allowNull: false },
 			userId: { type: DataTypes.INTEGER, allowNull: false },
 			carMake: { type: DataTypes.STRING, allowNull: false },
 			carModel: { type: DataTypes.STRING, allowNull: false },
