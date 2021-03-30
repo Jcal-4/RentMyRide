@@ -76,6 +76,19 @@ function LoginFormPage() {
 						</div>
 					</div>
 				</form>
+				<div className="DemoContainer">
+					<form onSubmit={handleSubmit}>
+						<div>
+							<input type="text" value="Spidey" required hidden />
+						</div>
+						<div>
+							<input type="password" value="password" required hidden />
+						</div>
+						<div className="loginButton">
+							<button type="submit">Demo User</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	);

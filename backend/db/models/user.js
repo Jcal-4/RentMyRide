@@ -32,15 +32,43 @@ module.exports = (sequelize, DataTypes) => {
 					len: [60, 60],
 				},
 			},
+			firstName: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			lastName: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			about: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			city: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			state: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			address: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			profileImageUrl: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 		},
 		{
 			defaultScope: {
-				// when querying these will be exempt from showing up
 				attributes: {
 					exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
 				},
 			},
 			scopes: {
+				// when querying these will be exempt from showing up
 				currentUser: {
 					attributes: { exclude: ["hashedPassword"] },
 				},
@@ -86,7 +114,9 @@ module.exports = (sequelize, DataTypes) => {
 		return await User.scope("currentUser").findByPk(user.id);
 	};
 	User.associate = function (models) {
-		// associations can be defined here
+		User.hasMany(models.Car, {foreignKey: "userId"})
+		User.hasMany(models.Review, {foreignKey: "authorId"})
+		User.hasMany(models.Booking, {foreignKey: "userId"})
 	};
 	return User;
 };

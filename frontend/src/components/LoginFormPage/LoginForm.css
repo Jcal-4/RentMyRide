@@ -3,6 +3,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction:column;
 	height: 60vh;
 	width: 350px;
 	border: 1px solid black;
@@ -26,7 +27,7 @@
 	display: flex;
 	justify-content: center;
 	/* border: 1px solid black; */
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .background__login {
@@ -37,4 +38,9 @@
 .signupButton__login {
 	text-decoration: none;
   padding: 10px;
+}
+
+.DemoContainer {
+	position: relative;
+
 }

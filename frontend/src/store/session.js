@@ -13,7 +13,7 @@ const resetUser = () => ({
 	type: USER_RESET,
 });
 
-// Thunk
+// Login Thunk
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
 	const response = await csrfFetch(`/api/session/`, {
