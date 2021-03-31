@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
 			</>
 		);
 	}
-	
+
 	//  {
 	// 	<NavLink to={`/users/${sessionUser.id}`}>
 	// 		<button>Profile</button>
@@ -48,11 +48,12 @@ function Navigation({ isLoaded }) {
 				</NavLink>
 			</div>
 			<div className="searchBar">
-				<p>a search bar will go here</p>
+			<NavLink to="/cars">
+			<p>Cars to rent</p>
+			</NavLink>
 			</div>
 			<ul className="navLinks">
-				<li>
-				</li>
+				<li></li>
 				<li>{isLoaded && sessionLinks}</li>
 			</ul>
 		</div>

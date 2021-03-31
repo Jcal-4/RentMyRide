@@ -38,7 +38,7 @@ function App() {
 					<Route path="/car/:carId">
 						<UserBookings />
 					</Route>
-					<Route path="/map">
+					<Route path="/cars">
 						<GoogleMaps />
 					</Route>
 					<Route>
