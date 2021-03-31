@@ -1,3 +1,11 @@
 .banner {
 	width: 100%;
 }
+
+li {
+	list-style: none;
+}
+
+.carDisplay__homePage {
+	width: 450px;
+}

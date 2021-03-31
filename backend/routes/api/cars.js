@@ -19,7 +19,6 @@ router.get(
 // grab a car by id. This will be helpful for when grabbing a car by id from the url but this might not be needed due to the one above
 // if we have already grabbed all of the cars then there might not be a need to get a specific car from the id. We might be able to just grab it
 // from the state and by a key #!
-
 // router.get("/car", asyncHandler( async (req, res) => {
 //   // do a query for all of the cars in the db
 //   const cars = await Car.findAll();

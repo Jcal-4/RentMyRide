@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import NoMatch from "./components/NoMatch";
 import SignupFormPage from "./components/SignUpPage";
 import UserBookings from "./components/UserBookings";
+import UserPage from "./components/UserPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -35,8 +36,11 @@ function App() {
 					<Route path="/car/:carId">
 						<CarPage />
 					</Route>
-					<Route path="/car/:carId">
+					<Route path="/users/:userId/bookings">
 						<UserBookings />
+					</Route>
+					<Route path="/users/:userId">
+						<UserPage />
 					</Route>
 					<Route path="/cars">
 						<GoogleMaps />

@@ -34,12 +34,6 @@ function Navigation({ isLoaded }) {
 		);
 	}
 
-	//  {
-	// 	<NavLink to={`/users/${sessionUser.id}`}>
-	// 		<button>Profile</button>
-	//  	</NavLink>
-	//  }
-
 	return (
 		<div className="navbar">
 			<div className="logo">
@@ -48,12 +42,18 @@ function Navigation({ isLoaded }) {
 				</NavLink>
 			</div>
 			<div className="searchBar">
-			<NavLink to="/cars">
-			<p>Cars to rent</p>
-			</NavLink>
+				<NavLink to="/cars">
+					<p>Cars to rent</p>
+				</NavLink>
 			</div>
 			<ul className="navLinks">
-				<li></li>
+				<li>
+					{sessionUser && (
+						<NavLink to={`/users/${sessionUser.id}`}>
+							<button>Profile</button>
+						</NavLink>
+					)}
+				</li>
 				<li>{isLoaded && sessionLinks}</li>
 			</ul>
 		</div>
