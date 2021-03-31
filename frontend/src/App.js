@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import CarPage from "./components/CarPage";
+import GoogleMaps from "./components/GoogleMaps";
 import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
 import NoMatch from "./components/NoMatch";
 import SignupFormPage from "./components/SignUpPage";
+import UserBookings from "./components/UserBookings";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -32,6 +34,12 @@ function App() {
 					</Route>
 					<Route path="/car/:carId">
 						<CarPage />
+					</Route>
+					<Route path="/car/:carId">
+						<UserBookings />
+					</Route>
+					<Route path="/map">
+						<GoogleMaps />
 					</Route>
 					<Route>
 						<NoMatch />

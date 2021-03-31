@@ -1,17 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
+
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
+	const dispatch = useDispatch();
+
 	// pull the user from the store
 	const sessionUser = useSelector((state) => state.session.user);
-
 	let sessionLinks;
 	// check to see if there is a user or not and depending on that we render differently on the navbar
 	if (sessionUser) {
-		sessionLinks = <ProfileButton user={sessionUser} />;
+		const logout = (e) => {
+			e.preventDefault();
+			dispatch(sessionActions.logout());
+		};
+		// sessionLinks = <ProfileButton user={sessionUser} />;
+		sessionLinks = <button onClick={logout}>Log Out</button>;
 	} else {
 		sessionLinks = (
 			<>
@@ -24,6 +33,12 @@ function Navigation({ isLoaded }) {
 			</>
 		);
 	}
+	
+	//  {
+	// 	<NavLink to={`/users/${sessionUser.id}`}>
+	// 		<button>Profile</button>
+	//  	</NavLink>
+	//  }
 
 	return (
 		<div className="navbar">
@@ -37,8 +52,8 @@ function Navigation({ isLoaded }) {
 			</div>
 			<ul className="navLinks">
 				<li>
-					{isLoaded && sessionLinks}
 				</li>
+				<li>{isLoaded && sessionLinks}</li>
 			</ul>
 		</div>
 	);

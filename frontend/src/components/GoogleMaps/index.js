@@ -1,26 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import {
+	withGoogleMap,
+	withScriptjs,
+	GoogleMap,
+	Marker,
+	InfoWindow,
+} from "react-google-maps";
 
-function GoogleMap() {
-  return (
-    <div>
-      <div id="root"></div>
-      <div id='map'></div>
-      <script>
-      function initMap(){
-        var location = {lat: 41.639420, lng:-87.480873};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: location
-        });
-        var marker = new google.map.Marker({
-          position: location,
-          map: map
-        })
-      }
-      </script>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q"
-    </div>
-  )
+function Map() {
+
+
+	return (
+		<GoogleMap
+			defaultZoom={10}
+			defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
+				/>
+	);
 }
 
-export default GoogleMap
+const MapWrapped = withScriptjs(withGoogleMap(Map));
+
+function GoogleMaps() {
+	return (
+		<div style={{ width: "100vw", height: "100vh" }}>
+			<MapWrapped
+				googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q`}
+				loadingElement={<div style={{ height: `100%` }} />}
+				containerElement={<div style={{ height: `100%` }} />}
+				mapElement={<div style={{ height: `100%` }} />}
+			/>
+		</div>
+	);
+}
+export default GoogleMaps
