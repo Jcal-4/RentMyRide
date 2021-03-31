@@ -1,17 +1,17 @@
 import { csrfFetch } from "./csrf";
 
-const USER = "user/LOAD";
+const BOOKING = "user/LOAD/BOOKINGS";
 
 // ACTIONS ***********************************************************************************************
 const loadUser = (user) => ({
-	type: USER,
+	type: BOOKING,
 	user,
 });
 
 // THUNKS ************************************************************************************************
-// Grab a user thunk
-export const getUser = (userId) => async (dispatch) => {
-	const response = await csrfFetch(`/api/user/${userId}`);
+// Grab a users bookings
+export const getBookings = (userId) => async (dispatch) => {
+	const response = await csrfFetch(`/api/booking/${userId}`);
 
 	if (response.ok) {
 		const user = await response.json();
@@ -21,15 +21,15 @@ export const getUser = (userId) => async (dispatch) => {
 
 // REDUCER ************************************************************************************************
 const initialState = {
-	userInfo: {},
+	bookingInfo: [],
 };
 
-const userReducer = (state = initialState, action) => {
+const bookingReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case USER: {
+		case BOOKING: {
 			const newState = {
 				...state, // grabbing everything in the sate including users..
-				userInfo: action.user,
+				bookingInfo: action.user,
 			};
 			return newState;
 		}
@@ -38,4 +38,4 @@ const userReducer = (state = initialState, action) => {
 	}
 };
 
-export default userReducer;
+export default bookingReducer;

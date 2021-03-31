@@ -49,9 +49,20 @@ function Navigation({ isLoaded }) {
 			<ul className="navLinks">
 				<li>
 					{sessionUser && (
-						<NavLink to={`/users/${sessionUser.id}`}>
-							<button>Profile</button>
-						</NavLink>
+						<div>
+							<NavLink
+								to={`/users/${sessionUser.username}/bookings`}
+								className="bookingsButton"
+							>
+								<button>My Bookings</button>
+							</NavLink>
+							<NavLink
+								to={`/users/${sessionUser.id}`}
+								className="profileButton"
+							>
+								<button>Profile</button>
+							</NavLink>
+						</div>
 					)}
 				</li>
 				<li>{isLoaded && sessionLinks}</li>

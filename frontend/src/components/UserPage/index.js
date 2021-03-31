@@ -25,7 +25,12 @@ function UserPage() {
 			<img className="userProfilePic" src={user.profileImageUrl}></img>
 		</div>
 	);
-	return <div>{sessionUser}</div>;
+	return (
+		<div>
+			<style type="text/css">{`.profileButton {display: none}`}</style>
+			{sessionUser}
+		</div>
+	);
 }
 
 export default UserPage;
