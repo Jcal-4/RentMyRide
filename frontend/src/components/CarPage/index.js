@@ -2,46 +2,44 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as hostActions from "../../store/host";
+import * as bookingActions from "../../store/bookings";
 import { Redirect } from "react-router-dom";
 
 import "./CarPage.css";
 
 function CarPage() {
 	const dispatch = useDispatch();
-	const { carId } = useParams(); // car being rendered on the page
+	let { carId } = useParams(); // car being rendered on the page
 	const car = useSelector((state) => state.car[carId]);
 	const userId = useSelector((state) => state.session.user.id); // current session user
-
-	// Set Variables using state
 	const [startDate, setStartDate] = useState("");
 	const [endDate, setEndDate] = useState("");
 
 	const onDelete = (e) => {
 		e.preventDefault();
-
 		dispatch(hostActions.removeCar(carId));
 		return <Redirect to="/" />;
 	};
 
 	const onCreate = (e) => {
 		e.preventDefault();
+		carId = parseInt(carId, 10);
+		// console.log(userId, carId, startDate, endDate);
 
-		console.log(startDate, "****", endDate);
+		dispatch(
+			bookingActions.createBookings({ userId, carId, startDate, endDate })
+		);
 		// return <Redirect to="/" />;
 	};
-
-	console.log(userId);
-	console.log(car.userId);
 
 	var today = new Date();
 	var dd = String(today.getDate()).padStart(2, "0");
 	var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 	var yyyy = today.getFullYear();
 	today = yyyy + "-" + mm + "-" + dd;
-	console.log(today);
-
+	// the following will make it so that the starting date on the input will
+	// be on the date that the user is accessing the page
 	let chosenDate;
-
 	if (startDate === "") {
 		chosenDate = today;
 	} else {

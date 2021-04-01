@@ -14,10 +14,6 @@ function HomePage() {
 		dispatch(carActions.getCars());
 	}, [dispatch]);
 
-	console.log(cars); // car no render
-
-	// {<img src={cars[1].carImage}></img>}
-
 	let sessionLinks = (
 		<ul className="carLinks">
 			{cars?.map((car) => (

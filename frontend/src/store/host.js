@@ -42,19 +42,6 @@ export const removeCar = (carId) => async (dispatch) => {
 	return response;
 };
 
-// export const updateCar = (car) => async (dispatch) => {
-// 	const response = await csrfFetch(`/api/car/${car.id}`, {
-// 		method: "PUT",
-// 		headers: {
-// 			"Content-Type": "application/json",
-// 		},
-// 		body: JSON.stringify(car),
-// 	});
-// 	const data = await response.json();
-// 	dispatch(setCar(data));
-// 	return response;
-// };
-
 const initialState = {
 	car: null,
 };
