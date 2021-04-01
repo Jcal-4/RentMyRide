@@ -18,6 +18,21 @@ const remove = () => {
 };
 
 // THUNKS
+// adds a car to database
+export const createCar = (car) => async (dispatch) => {
+	const response = await csrfFetch(`/api/user/host`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(car),
+	});
+	const data = await response.json();
+
+	dispatch(setCar(data.car));
+	return response;
+};
+
 export const removeCar = (carId) => async (dispatch) => {
 	const response = await csrfFetch(`/api/car/:${carId}`, {
 		method: "DELETE",
@@ -39,48 +54,25 @@ export const updateCar = (car) => async (dispatch) => {
 	return response;
 };
 
-export const createCar = (car) => async (dispatch) => {
-	// const {
-	// 	carMake,
-	// 	carModel,
-	// 	carYear,
-	// 	pricePerDay,
-	// 	carImage,
-	// 	countryName,
-	// 	seats,
-	// 	electric,
-	// 	autonomous,
-	// 	roadsideAssistance,
-	// 	cityName,
-	// 	stateName,
-	// 	address,
-	// } = car;
-
-	const response = await csrfFetch(`/api/user/host`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(car),
-	});
-	const data = await response.json();
-
-	dispatch(setCar(data.spot));
-	return response;
+const initialState = {
+	car: null,
 };
-const hostReducer = (state = { spot: null }, action) => {
+
+// REDUCER
+const hostReducer = (state = initialState, action) => {
 	let newState;
 	switch (action.type) {
 		case HOST:
 			newState = Object.assign({}, state);
-			newState.spot = action.payload;
+			newState.car = action.payload;
 			return newState;
 		case REMOVE_CAR:
 			newState = Object.assign({}, state);
-			newState.spot = null;
+			newState.car = null;
 			return newState;
 		default:
 			return state;
 	}
 };
+
 export default hostReducer;
