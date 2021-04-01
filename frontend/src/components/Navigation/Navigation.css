@@ -7,7 +7,11 @@ body {
 	justify-content: space-between;
 	padding: 0px 10px 0px 10px;
 	align-items: center;
-	border: 1px solid black;
+	border-bottom: 1px solid white;
+	background-color: black;
+	color: white;
+	z-index: 1000;
+	position: relative;
 }
 
 .navLinks {
@@ -23,4 +27,11 @@ body {
 .signUp {
 	text-decoration: none;
 	padding: 0px 5px;
+}
+
+.logo {
+	width: 120px;
+	margin-top: 2px;
+	position: relative;
+	top: 2px;
 }

@@ -33,25 +33,42 @@ function Navigation({ isLoaded }) {
 			</>
 		);
 	}
-	
-	//  {
-	// 	<NavLink to={`/users/${sessionUser.id}`}>
-	// 		<button>Profile</button>
-	//  	</NavLink>
-	//  }
 
 	return (
 		<div className="navbar">
 			<div className="logo">
 				<NavLink exact to="/" className="homeButton">
-					Home
+					<img src="images/Logo.png" className="logo" />
 				</NavLink>
 			</div>
 			<div className="searchBar">
-				<p>a search bar will go here</p>
+				<NavLink to="/cars">
+					<p>Cars to rent</p>
+				</NavLink>
+			</div>
+			<div className="hostCar">
+				<NavLink to="/user/host">
+					<p>Host a Car</p>
+				</NavLink>
 			</div>
 			<ul className="navLinks">
 				<li>
+					{sessionUser && (
+						<div>
+							<NavLink
+								to={`/users/${sessionUser.username}/bookings`}
+								className="bookingsButton"
+							>
+								<button>My Bookings</button>
+							</NavLink>
+							<NavLink
+								to={`/users/${sessionUser.id}`}
+								className="profileButton"
+							>
+								<button>Profile</button>
+							</NavLink>
+						</div>
+					)}
 				</li>
 				<li>{isLoaded && sessionLinks}</li>
 			</ul>
