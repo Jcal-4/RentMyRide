@@ -2,3 +2,11 @@
 	width: 500px;
 	border: 1px solid black;
 }
+
+.reviewContainer {
+	border: 1px solid black;
+	max-width: 400px;
+	/* position: relative; */
+	/* left: 800px; */
+	/* top: -150px; */
+}

@@ -3,6 +3,7 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { Car } = require("../../db/models");
 const { User } = require("../../db/models");
+const { Review } = require("../../db/models");
 
 // everything car related api will go here to this file in the backend
 
@@ -12,7 +13,7 @@ router.get(
 	asyncHandler(async (req, res) => {
 		// do a query for all of the cars in the db
 		const cars = await Car.findAll({
-			include: User,
+			include: [User, Review],
 		});
 		console.log(cars);
 		res.send(cars);

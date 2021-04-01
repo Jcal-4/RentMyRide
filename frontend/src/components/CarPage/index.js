@@ -81,6 +81,18 @@ function CarPage() {
 		);
 	}
 
+	// Here we will decide whether or not to render a section to comment with
+	let commentsView;
+	if (userId === car.userId) {
+		commentsView = (
+			<div>
+				<form onSubmit={onDelete}>
+					<button type="submit">Delete</button>
+				</form>
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<h1>
@@ -91,6 +103,18 @@ function CarPage() {
 				<img className="carDisplay__carPage" src={car.carImage}></img>
 			</div>
 			{sessionResult}
+			<div>
+				<ul className="reviewContainer">
+					{car.Reviews?.map((review) => (
+						<li key={review.id}>
+							<div>
+								{review.title} Rating {review.rating}
+							</div>
+							<div>{review.description}</div>
+						</li>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
 }
