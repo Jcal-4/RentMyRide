@@ -20,7 +20,7 @@ function HomePage() {
 
 	let sessionLinks = (
 		<ul className="carLinks">
-			{cars.map((car) => (
+			{cars?.map((car) => (
 				<NavLink to={`/car/${car.id}`}>
 					<li key={car.id}>{car.carModel}</li>
 					<img className="carDisplay__homePage" src={car.carImage}></img>
