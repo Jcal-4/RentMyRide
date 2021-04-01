@@ -84,7 +84,8 @@ function CarPage() {
 	return (
 		<div>
 			<h1>
-				{car.carMake}, {car.carModel}
+				{car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
+				{car.User.lastName}
 			</h1>
 			<div>
 				<img className="carDisplay__carPage" src={car.carImage}></img>

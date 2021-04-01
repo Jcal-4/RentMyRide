@@ -35,7 +35,7 @@ export const createCar = (car) => async (dispatch) => {
 
 // Remove a car from database
 export const removeCar = (carId) => async (dispatch) => {
-	const response = await csrfFetch(`/api/car/${carId}`, {
+	const response = await csrfFetch(`/api/car/car/${carId}`, {
 		method: "DELETE",
 	});
 	dispatch(remove());
