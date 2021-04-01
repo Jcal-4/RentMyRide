@@ -45,13 +45,13 @@ const carReducer = (state = initialState, action) => {
 		case CARS: {
 			const allCars = {};
 			action.cars.forEach((car) => {
-				allCars[car.id] = car
-			})
+				allCars[car.id] = car;
+			});
 			return {
 				...allCars,
 				...state,
-				carsList: action.cars
-			}
+				carsList: action.cars,
+			};
 		}
 		default:
 			return state;
