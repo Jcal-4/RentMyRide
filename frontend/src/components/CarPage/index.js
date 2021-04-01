@@ -8,9 +8,9 @@ import "./CarPage.css";
 
 function CarPage() {
 	const dispatch = useDispatch();
-
 	const { carId } = useParams();
 	const car = useSelector((state) => state.car[carId]);
+	const userId = useSelector((state) => state.session.user.id);
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -18,6 +18,20 @@ function CarPage() {
 		dispatch(hostActions.removeCar(carId));
 		return <Redirect to="/" />;
 	};
+	console.log(userId);
+	console.log(car.userId);
+	let deleteButton;
+	if (userId === car.userId) {
+		deleteButton = (
+			<div>
+				<form onSubmit={onSubmit}>
+					<button type="submit">Delete</button>
+				</form>
+			</div>
+		);
+	} else {
+		deleteButton = null;
+	}
 
 	return (
 		<div>
@@ -27,11 +41,7 @@ function CarPage() {
 			<div>
 				<img className="carDisplay__carPage" src={car.carImage}></img>
 			</div>
-			<div>
-				<form onSubmit={onSubmit}>
-					<button type="submit">Delete</button>
-				</form>
-			</div>
+			{deleteButton}
 		</div>
 	);
 }
