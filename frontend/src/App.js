@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import CarPage from "./components/CarPage";
 import GoogleMaps from "./components/GoogleMaps";
 import HomePage from "./components/HomePage";
+import HostForm from "./components/HostACar";
 import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
 import NoMatch from "./components/NoMatch";
@@ -44,6 +45,9 @@ function App() {
 					</Route>
 					<Route path="/cars">
 						<GoogleMaps />
+					</Route>
+					<Route path="/user/host">
+						<HostForm />
 					</Route>
 					<Route>
 						<NoMatch />

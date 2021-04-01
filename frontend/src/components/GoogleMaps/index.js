@@ -8,13 +8,11 @@ import {
 } from "react-google-maps";
 
 function Map() {
-
-
 	return (
 		<GoogleMap
 			defaultZoom={10}
 			defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
-				/>
+		/>
 	);
 }
 
@@ -22,7 +20,7 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 function GoogleMaps() {
 	return (
-		<div style={{ width: "100vw", height: "100vh" }}>
+		<div style={{ width: "50vw", height: "91.75vh" }}>
 			<MapWrapped
 				googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q`}
 				loadingElement={<div style={{ height: `100%` }} />}
@@ -32,4 +30,4 @@ function GoogleMaps() {
 		</div>
 	);
 }
-export default GoogleMaps
+export default GoogleMaps;

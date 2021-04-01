@@ -46,6 +46,11 @@ function Navigation({ isLoaded }) {
 					<p>Cars to rent</p>
 				</NavLink>
 			</div>
+			<div className="hostCar">
+				<NavLink to="/user/host">
+					<p>Host a Car</p>
+				</NavLink>
+			</div>
 			<ul className="navLinks">
 				<li>
 					{sessionUser && (
