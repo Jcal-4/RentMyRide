@@ -100,7 +100,7 @@ function CarPage() {
 
 	// Here we will decide whether or not to render a section to comment with
 	let commentsView;
-	if (userId !== car.userId) {
+	if (userId === car.userId) {
 		commentsView = <h1>I can't comment it's my own car!</h1>;
 	} else {
 		commentsView = (
