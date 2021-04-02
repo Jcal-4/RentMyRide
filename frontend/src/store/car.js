@@ -24,20 +24,6 @@ const initialState = {
 	carsList: [],
 };
 
-// const carReducer = (state = initialState, action) => {
-// 	switch (action.type) {
-// 		case CARS:{
-// 			const newState = {
-// 				...state, // grabbing everything in the sate including users..
-// 				carsList: action.cars,
-// 			};
-// 			return newState;
-// 		}
-// 		default:
-// 			return state;
-// 	}
-// };
-
 // this will grab all of the database cars and then give us access to them in the component
 
 const carReducer = (state = initialState, action) => {
@@ -45,13 +31,13 @@ const carReducer = (state = initialState, action) => {
 		case CARS: {
 			const allCars = {};
 			action.cars.forEach((car) => {
-				allCars[car.id] = car
-			})
+				allCars[car.id] = car;
+			});
 			return {
 				...allCars,
 				...state,
-				carsList: action.cars
-			}
+				carsList: action.cars,
+			};
 		}
 		default:
 			return state;

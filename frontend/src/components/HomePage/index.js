@@ -14,13 +14,9 @@ function HomePage() {
 		dispatch(carActions.getCars());
 	}, [dispatch]);
 
-	console.log(cars); // car no render
-
-	// {<img src={cars[1].carImage}></img>}
-
 	let sessionLinks = (
 		<ul className="carLinks">
-			{cars.map((car) => (
+			{cars?.map((car) => (
 				<NavLink to={`/car/${car.id}`}>
 					<li key={car.id}>{car.carModel}</li>
 					<img className="carDisplay__homePage" src={car.carImage}></img>

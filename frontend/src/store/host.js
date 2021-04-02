@@ -33,24 +33,12 @@ export const createCar = (car) => async (dispatch) => {
 	return response;
 };
 
+// Remove a car from database
 export const removeCar = (carId) => async (dispatch) => {
-	const response = await csrfFetch(`/api/car/:${carId}`, {
+	const response = await csrfFetch(`/api/car/car/${carId}`, {
 		method: "DELETE",
 	});
 	dispatch(remove());
-	return response;
-};
-
-export const updateCar = (car) => async (dispatch) => {
-	const response = await csrfFetch(`/api/car/${car.id}`, {
-		method: "PUT",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(car),
-	});
-	const data = await response.json();
-	dispatch(setCar(data));
 	return response;
 };
 

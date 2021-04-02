@@ -15,4 +15,19 @@ router.get(
 	})
 );
 
+router.post(
+	"/bookCar",
+	asyncHandler(async (req, res) => {
+		const { userId, carId, startDate, endDate } = req.body;
+
+		const newBooking = await Booking.create({
+			userId,
+			carId,
+			startDate,
+			endDate,
+		});
+		return res.json({ newBooking });
+	})
+);
+
 module.exports = router;

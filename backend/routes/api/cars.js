@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { Car } = require("../../db/models");
+const { User } = require("../../db/models");
+const { Review } = require("../../db/models");
 
 // everything car related api will go here to this file in the backend
 
@@ -10,21 +12,22 @@ router.get(
 	"/car",
 	asyncHandler(async (req, res) => {
 		// do a query for all of the cars in the db
-		const cars = await Car.findAll();
+		const cars = await Car.findAll({
+			include: [User, Review],
+		});
 		console.log(cars);
 		res.send(cars);
 	})
 );
 
-// grab a car by id. This will be helpful for when grabbing a car by id from the url but this might not be needed due to the one above
-// if we have already grabbed all of the cars then there might not be a need to get a specific car from the id. We might be able to just grab it
-// from the state and by a key #!
-// router.get("/car", asyncHandler( async (req, res) => {
-//   // do a query for all of the cars in the db
-//   const cars = await Car.findAll();
-//   console.log(cars)
-//   res.send(cars)
-// }))
+router.delete(
+	"/car/:carId",
+	asyncHandler(async (req, res, next) => {
+		const carId = req.params.carId;
+		const car = await Car.findByPk(carId);
+		await car.destroy();
+		res.json({ message: "successful" });
+	})
+);
 
-// is the router being used correctly in another file (imported and used)?
 module.exports = router;
