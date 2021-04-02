@@ -6,6 +6,7 @@
 .reviewContainer {
 	border: 1px solid black;
 	max-width: 400px;
+	padding: 0px;
 	/* position: relative; */
 	/* left: 800px; */
 	/* top: -150px; */
