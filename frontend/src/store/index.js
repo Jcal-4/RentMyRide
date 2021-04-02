@@ -5,6 +5,7 @@ import carReducer from "./car";
 import userReducer from "./user";
 import bookingReducer from "./bookings";
 import reviewReducer from "./review";
+import grabCarsReducer from "./carlocation";
 
 const rootReducer = combineReducers({
 	session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
 	user: userReducer,
 	booking: bookingReducer,
 	review: reviewReducer,
+	carlocation: grabCarsReducer,
 });
 
 let enhancer;

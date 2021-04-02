@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
 	GoogleMap,
 	useLoadScript,
@@ -16,27 +17,30 @@ import {
 	ComboboxList,
 	ComboboxOption,
 } from "@reach/combobox";
-
 import "@reach/combobox/styles.css";
 import "./GoogleMaps.css";
+import * as carLocater from "../../store/carlocation";
+// END OF IMPORTS --------------------------------------------------------------------------------------------------------
 
 const libraries = ["places"];
 
+// options for the google map
 const options = {
 	fullscreenControl: false,
 	zoomControl: true,
 };
-
+// styling added to the google map such as the size and width
 const mapContainerStyle = {
-	height: "91.75vh",
+	height: "91.25vh",
 	width: "50vw",
 };
-
+// the center is where the map will first load into (COME BACK AND EDIT THIS TO THE USERS SAVED ADDRESS)
 const center = {
 	lat: 36.169941,
 	lng: -115.139832,
 };
 
+// GOOGLE MAP COMPONENT (main render) --------------------------------------------------------------------------------
 export default function GoogleMaps() {
 	const { isLoaded, loadError } = useLoadScript({
 		googleMapsApiKey: "AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q",
@@ -85,7 +89,7 @@ export default function GoogleMaps() {
 		</div>
 	);
 }
-
+// LOCATE COMPONENT (compass geolocation) --------------------------------------------------------------------------------
 function Locate({ panTo }) {
 	return (
 		<button
@@ -106,8 +110,9 @@ function Locate({ panTo }) {
 		</button>
 	);
 }
-
+// SEARCH COMPONENT -----------------------------------------------------------------------------------------------------
 function Search({ panTo }) {
+	const dispatch = useDispatch();
 	const {
 		ready,
 		value,
@@ -127,9 +132,15 @@ function Search({ panTo }) {
 		setValue(e.target.value);
 	};
 
+	// we might be able to return here to grab the input from the search box and query through our cars for which to render
 	const handleSelect = async (address) => {
+		console.log(address);
+		let city = address.split(",");
+		console.log(city[0]);
+		dispatch(carLocater.getCars({ cityName: city }));
 		setValue(address, false);
 		clearSuggestions();
+		// add the dispatch here to get the cars with the right locations
 
 		try {
 			const results = await getGeocode({ address });
