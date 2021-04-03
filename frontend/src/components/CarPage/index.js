@@ -12,7 +12,7 @@ function CarPage() {
 	const dispatch = useDispatch();
 	let { carId } = useParams(); // car being rendered on the page
 	const car = useSelector((state) => state.car[carId]);
-	const userId = useSelector((state) => state.session.user.id); // current session user
+	let sessionUser = useSelector((state) => state.session.user); // current session user
 	const [startDate, setStartDate] = useState("");
 	const [endDate, setEndDate] = useState("");
 	const [title, setTitle] = useState("");
@@ -28,6 +28,7 @@ function CarPage() {
 	const onCreate = (e) => {
 		e.preventDefault();
 		carId = parseInt(carId, 10);
+		let userId = sessionUser.id;
 		dispatch(
 			bookingActions.createBookings({ userId, carId, startDate, endDate })
 		);
@@ -38,6 +39,7 @@ function CarPage() {
 		e.preventDefault();
 		carId = parseInt(carId, 10);
 		rating = parseInt(rating, 10);
+		let userId = sessionUser.id;
 		dispatch(
 			reviewActions.postReview({
 				authorId: userId,
@@ -63,77 +65,79 @@ function CarPage() {
 		chosenDate = startDate;
 	}
 
+	let commentsView;
 	let sessionResult;
 	// if the user matches the car then that user can delete that car
-	if (userId === car.userId) {
-		sessionResult = (
-			<div>
-				<form onSubmit={onDelete}>
-					<button type="submit">Delete</button>
-				</form>
-			</div>
-		);
-	} else {
-		// if the session user does not match the car then the session user can rent it
-		sessionResult = (
-			<div>
-				<form onSubmit={onCreate}>
-					<label>Start Date</label>
-					<input
-						type="date"
-						value={chosenDate}
-						onChange={(e) => setStartDate(e.target.value)}
-						required
-					></input>
-					<label>End Date</label>
-					<input
-						type="date"
-						value={endDate}
-						onChange={(e) => setEndDate(e.target.value)}
-						required
-					></input>
-					<button type="submit">Rent</button>
-				</form>
-			</div>
-		);
-	}
+	if (sessionUser) {
+		if (sessionUser.id === car.userId) {
+			sessionResult = (
+				<div>
+					<form onSubmit={onDelete}>
+						<button type="submit">Delete</button>
+					</form>
+				</div>
+			);
+		} else {
+			// if the session user does not match the car then the session user can rent it
+			sessionResult = (
+				<div>
+					<form onSubmit={onCreate}>
+						<label>Start Date</label>
+						<input
+							type="date"
+							value={chosenDate}
+							onChange={(e) => setStartDate(e.target.value)}
+							required
+						></input>
+						<label>End Date</label>
+						<input
+							type="date"
+							value={endDate}
+							onChange={(e) => setEndDate(e.target.value)}
+							required
+						></input>
+						<button type="submit">Rent</button>
+					</form>
+				</div>
+			);
+		}
 
-	// Here we will decide whether or not to render a section to comment with
-	let commentsView;
-	if (userId === car.userId) {
-		commentsView = <h1>I can't comment it's my own car!</h1>;
-	} else {
-		commentsView = (
-			<div>
-				<form onSubmit={onReview}>
-					<div>
-						<label>Title</label>
-						<input
-							type="text"
-							value={title}
-							onChange={(e) => setTitle(e.target.value)}
-						></input>
-					</div>
-					<div>
-						<label>Description</label>
-						<input
-							type="text"
-							value={description}
-							onChange={(e) => setDescription(e.target.value)}
-						></input>
-					</div>
-					<div>
-						<label>Rating</label>
-						<input
-							type="number"
-							value={rating}
-							onChange={(e) => setRating(e.target.value)}
-						></input>
-					</div>
-					<button type="submit">Submit Review</button>
-				</form>
-			</div>
-		);
+		// Here we will decide whether or not to render a section to comment with
+		if (sessionUser.id === car.userId) {
+			commentsView = <h1>I can't comment it's my own car!</h1>;
+		} else {
+			commentsView = (
+				<div>
+					<form onSubmit={onReview}>
+						<div>
+							<label>Title</label>
+							<input
+								type="text"
+								value={title}
+								onChange={(e) => setTitle(e.target.value)}
+							></input>
+						</div>
+						<div>
+							<label>Description</label>
+							<input
+								type="text"
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							></input>
+						</div>
+						<div>
+							<label>Rating</label>
+							<input
+								type="number"
+								value={rating}
+								onChange={(e) => setRating(e.target.value)}
+							></input>
+						</div>
+						<button type="submit">Submit Review</button>
+					</form>
+				</div>
+			);
+		}
 	}
 
 	return (

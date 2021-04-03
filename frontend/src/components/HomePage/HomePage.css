@@ -12,3 +12,7 @@ li {
 .carDisplay__homePage {
 	width: 450px;
 }
+
+body {
+	background-color: black;
+}
