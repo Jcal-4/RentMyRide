@@ -30,4 +30,20 @@ router.delete(
 	})
 );
 
+// grab cars where certain location
+router.post(
+	"/locations",
+	asyncHandler(async (req, res) => {
+		console.log(req.body);
+		// do a query for all of the cars in the db with the cities matching the passed in info
+		const cars = await Car.findAll({
+			where: {
+				cityName: req.body.cityName,
+			},
+		});
+		console.log(cars);
+		res.send(cars);
+	})
+);
+
 module.exports = router;
