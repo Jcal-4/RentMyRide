@@ -20,6 +20,7 @@ import {
 import "@reach/combobox/styles.css";
 import "./GoogleMaps.css";
 import * as carLocater from "../../store/carlocation";
+import GoogleMapCars from "../../GoogleMapsCars";
 // END OF IMPORTS --------------------------------------------------------------------------------------------------------
 
 const libraries = ["places"];
@@ -77,6 +78,7 @@ export default function GoogleMaps() {
 		<div>
 			<Locate panTo={panTo} />
 			<Search panTo={panTo} />
+			<GoogleMapCars />
 
 			<GoogleMap
 				id="map"
