@@ -21,6 +21,7 @@ import "@reach/combobox/styles.css";
 import "./GoogleMaps.css";
 import * as carLocater from "../../store/carlocation";
 import GoogleMapCars from "../GoogleMapsCars";
+import Geocode from "react-geocode";
 // END OF IMPORTS --------------------------------------------------------------------------------------------------------
 
 const libraries = ["places"];
@@ -34,16 +35,45 @@ const options = {
 const mapContainerStyle = {
 	height: "91.85vh",
 	width: "50vw",
-	top: 62.05,
+	top: 60.25,
 };
 // the center is where the map will first load into (COME BACK AND EDIT THIS TO THE USERS SAVED ADDRESS)
 const center = {
-	lat: 36.169941,
-	lng: -115.139832,
+	lat: 40.73061,
+	lng: -74.006,
 };
 
 // GOOGLE MAP COMPONENT (main render) --------------------------------------------------------------------------------
 export default function GoogleMaps() {
+	let cars = useSelector((state) => state.car.carsList);
+	Geocode.setApiKey("AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q");
+	// let addressesGeocode = []; // will store all the lat/lng in this array
+	let addressesGeocode = [
+		{ lat: 36.18794, lng: -115.05236 },
+		{ lat: 36.12162, lng: -115.30318 },
+		{ lat: 36.22216, lng: -115.28787 },
+		{ lat: 36.22349, lng: -115.16928 },
+		{ lat: 36.2036749, lng: -115.1526188 },
+		{ lat: 33.9602649, lng: -118.3877674 },
+		{ lat: 32.66367, lng: -116.27363 },
+		{ lat: 34.049209, lng: -118.466374 },
+	];
+	// function geocodee(cars) {
+	// 	cars.forEach((car) => {
+	// 		Geocode.fromAddress(car.address).then(
+	// 			(response) => {
+	// 				const { lat, lng } = response.results[0].geometry.location;
+	// 				addressesGeocode.push({ lat: `${lat}`, lng: `${lng}` });
+	// 			},
+	// 			(error) => {
+	// 				console.error(error);
+	// 			}
+	// 		);
+	// 	});
+	// }
+	// // console.log(cars[0].address);
+	// geocodee(cars);
+	// console.log(addressesGeocode);
 	const { isLoaded, loadError } = useLoadScript({
 		googleMapsApiKey: "AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q",
 		libraries,
@@ -88,7 +118,14 @@ export default function GoogleMaps() {
 				options={options}
 				center={center}
 				onLoad={onMapLoad}
-			></GoogleMap>
+			>
+				{addressesGeocode.map((marker) => (
+					<Marker
+						key={`${marker.lat}-${marker.lng}`}
+						position={{ lat: marker.lat, lng: marker.lng }}
+					/>
+				))}
+			</GoogleMap>
 		</div>
 	);
 }
