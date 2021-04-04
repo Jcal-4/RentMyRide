@@ -19,7 +19,7 @@ function GoogleMapCars() {
 		</ul>
 	);
 
-	return <div>{sessionLinks}</div>;
+	return <div className="carScroll">{sessionLinks}</div>;
 }
 
 export default GoogleMapCars;

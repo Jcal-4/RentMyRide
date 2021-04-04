@@ -20,7 +20,7 @@ import {
 import "@reach/combobox/styles.css";
 import "./GoogleMaps.css";
 import * as carLocater from "../../store/carlocation";
-import GoogleMapCars from "../../GoogleMapsCars";
+import GoogleMapCars from "../GoogleMapsCars";
 // END OF IMPORTS --------------------------------------------------------------------------------------------------------
 
 const libraries = ["places"];
@@ -32,8 +32,9 @@ const options = {
 };
 // styling added to the google map such as the size and width
 const mapContainerStyle = {
-	height: "91.25vh",
+	height: "91.85vh",
 	width: "50vw",
+	top: 62.05,
 };
 // the center is where the map will first load into (COME BACK AND EDIT THIS TO THE USERS SAVED ADDRESS)
 const center = {
@@ -75,7 +76,7 @@ export default function GoogleMaps() {
 	if (!isLoaded) return "Loading...";
 
 	return (
-		<div>
+		<div className="mapContainer">
 			<Locate panTo={panTo} />
 			<Search panTo={panTo} />
 			<GoogleMapCars />

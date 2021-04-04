@@ -1,0 +1,28 @@
+.carDisplay__mapsPage {
+	width: 400px;
+}
+
+.carLinks__maps {
+	/* display: flex; */
+	position: relative;
+	height: 91.55vh;
+	overflow-y: scroll;
+	/* border: 1px solid white; */
+	top: 46px;
+	width: 50vw;
+}
+.carLinks__maps::-webkit-scrollbar {
+	width: 7px;
+}
+
+.carLinks__maps::-webkit-scrollbar-thumb {
+	background: linear-gradient(transparent, #00ccff);
+	border-radius: 6px;
+}
+
+.carScroll {
+	/* position: relative;
+	top: 46px;
+	height: 60.25vh;
+	border: 1px solid white; */
+}
