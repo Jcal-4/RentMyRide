@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as bookingActions from "../../store/bookings";
+import "./UserBookings.css";
 
 function UserBookings() {
 	const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function UserBookings() {
 	}, [dispatch]);
 
 	return (
-		<div>
+		<div className="bookingsContainer">
 			<style type="text/css">{`.bookingsButton {display: none}`}</style>
 			<div>
 				{userBooking?.map((booking) => {

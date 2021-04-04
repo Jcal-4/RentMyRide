@@ -15,9 +15,9 @@ function UserPage() {
 	}, [dispatch]);
 
 	let sessionUser = (
-		<div>
+		<div className="profileContainer">
 			<div>
-				{user.firstName}, {user.lastName}
+				{user.firstName} {user.lastName}
 			</div>
 			<div>
 				{user.city}, {user.state}

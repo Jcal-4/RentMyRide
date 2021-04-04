@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
+import "./HostACar.css";
 
 function HostForm() {
 	let history = useHistory();
@@ -50,7 +51,7 @@ function HostForm() {
 	}
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form className="hostForm" onSubmit={onSubmit}>
 			<div>
 				<div>
 					<label>Make</label>
@@ -260,7 +261,9 @@ function HostForm() {
 				/>
 			</div>
 			<div>
-				<button type="submit">Sign Up</button>
+				<button className="hostButton" type="submit">
+					Sign Up
+				</button>
 			</div>
 		</form>
 	);

@@ -8,10 +8,9 @@ body {
 	right: 0;
 	display: flex;
 	justify-content: space-between;
-	/* padding: 0px 10px 0px 10px; */
 	align-items: center;
-	border-bottom: 1px solid white;
-	background-color: black;
+	/* border-bottom: 1px solid white; */
+	background-color: rgb(191, 191, 191);
 	color: white;
 	z-index: 1000;
 	position: fixed;
@@ -23,7 +22,7 @@ body {
 	align-items: center;
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
+	margin-right: 5px;
 }
 
 .homeButton,
@@ -38,4 +37,65 @@ body {
 	margin-top: 2px;
 	position: relative;
 	top: 2px;
+}
+
+.navbarCenter {
+	display: flex;
+}
+
+.hostCar {
+	border-radius: 25% 10%;
+	background-color: black;
+	padding: 11px;
+	color: white;
+	font-weight: bold;
+	color: rgb(191, 191, 191);
+	outline: none;
+	border: none;
+	margin: 1px;
+}
+
+.rentCar {
+	border-radius: 10% 25%;
+	padding: 11px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	color: rgb(191, 191, 191);
+	outline: none;
+	border: none;
+	margin: 1px;
+}
+
+.rentCar:hover {
+	cursor: pointer;
+	transition: 0.25s;
+	background-color: rgb(7, 7, 131);
+}
+
+.hostCar:hover {
+	cursor: pointer;
+	background-color: rgb(7, 7, 131);
+	transition: 0.25s;
+}
+
+.logoutButton,
+.bookingsButton,
+.profileButton {
+	border-radius: 5px;
+	outline: none;
+	color: rgb(191, 191, 191);
+	background-color: black;
+	border: 0px;
+	padding: 8px;
+	margin: 1px;
+	font-weight: bold;
+}
+
+.logoutButton:hover,
+.bookingsButton:hover,
+.profileButton:hover {
+	cursor: pointer;
+	background-color: rgb(7, 7, 131);
+	transition: 0.5s;
 }

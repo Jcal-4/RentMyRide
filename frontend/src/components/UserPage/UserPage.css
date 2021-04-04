@@ -1,3 +1,9 @@
 .userProfilePic {
 	width: 175px;
 }
+
+.profileContainer {
+	position: relative;
+	top: 65px;
+	color: white;
+}
