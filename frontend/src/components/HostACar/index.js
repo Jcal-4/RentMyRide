@@ -44,6 +44,7 @@ function HostForm() {
 				address,
 			})
 		);
+		history.push("/");
 	};
 
 	if (!sessionUser) {

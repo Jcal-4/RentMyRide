@@ -26,3 +26,21 @@
 	height: 60.25vh;
 	border: 1px solid white; */
 }
+
+.cardsContainer__mapPage {
+	display: flex;
+	border: 2px solid white;
+	margin: 10px;
+	border-radius: 10px;
+	width: 675px;
+	overflow: hidden;
+	transition: transform 100ms ease-in;
+	cursor: pointer;
+	box-shadow: 0 -2px 10px white;
+	color: white;
+	text-decoration: none;
+}
+
+.cardsContainer__mapPage:hover {
+	transform: scale(1.02);
+}
