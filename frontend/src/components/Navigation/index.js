@@ -20,7 +20,11 @@ function Navigation({ isLoaded }) {
 			dispatch(sessionActions.logout());
 		};
 		// sessionLinks = <ProfileButton user={sessionUser} />;
-		sessionLinks = <button onClick={logout}>Log Out</button>;
+		sessionLinks = (
+			<button className="logoutButton" onClick={logout}>
+				Log Out
+			</button>
+		);
 	} else {
 		sessionLinks = (
 			<>
@@ -41,31 +45,27 @@ function Navigation({ isLoaded }) {
 					<img src="images/Logo.png" className="logo" />
 				</NavLink>
 			</div>
-			<div className="searchBar">
-				<NavLink to="/cars">
-					<p>Cars to rent</p>
-				</NavLink>
-			</div>
-			<div className="hostCar">
-				<NavLink to="/user/host">
-					<p>Host a Car</p>
-				</NavLink>
+			<div className="navbarCenter">
+				<div>
+					<NavLink to="/cars">
+						<button className="rentCar">Rent</button>
+					</NavLink>
+				</div>
+				<div>
+					<NavLink to="/user/host">
+						<button className="hostCar">Host</button>
+					</NavLink>
+				</div>
 			</div>
 			<ul className="navLinks">
 				<li>
 					{sessionUser && (
 						<div>
-							<NavLink
-								to={`/users/${sessionUser.username}/bookings`}
-								className="bookingsButton"
-							>
-								<button>My Bookings</button>
+							<NavLink to={`/users/${sessionUser.username}/bookings`}>
+								<button className="bookingsButton">My Bookings</button>
 							</NavLink>
-							<NavLink
-								to={`/users/${sessionUser.id}`}
-								className="profileButton"
-							>
-								<button>Profile</button>
+							<NavLink to={`/users/${sessionUser.id}`}>
+								<button className="profileButton">Profile</button>
 							</NavLink>
 						</div>
 					)}

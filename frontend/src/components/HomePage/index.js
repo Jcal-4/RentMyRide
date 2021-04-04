@@ -15,14 +15,19 @@ function HomePage() {
 	}, [dispatch]);
 
 	let sessionLinks = (
-		<ul className="carLinks">
-			{cars?.map((car) => (
-				<NavLink to={`/car/${car.id}`}>
-					<li key={car.id}>{car.carModel}</li>
-					<img className="carDisplay__homePage" src={car.carImage}></img>
-				</NavLink>
-			))}
-		</ul>
+		<div>
+			<h1 className="carContainer__header"> The Greatest Rides Await</h1>
+			<ul className="carLinks">
+				{cars?.slice(0, 6).map((car) => (
+					<NavLink to={`/car/${car.id}`}>
+						<div className="cardsContainer">
+							<img className="carDisplay__homePage" src={car.carImage}></img>
+							<li key={car.id}>{car.carModel}</li>
+						</div>
+					</NavLink>
+				))}
+			</ul>
+		</div>
 	);
 	// if (!cars) return null;
 

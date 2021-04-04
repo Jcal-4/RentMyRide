@@ -1,0 +1,45 @@
+.hostForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	top: 100px;
+	border: 1px solid white;
+	color: white;
+	width: 30%;
+	min-width: 400px;
+	left: 32%;
+	box-shadow: 0 -2px 10px white;
+	border-radius: 10px;
+	color: rgb(191, 191, 191);
+}
+
+.hostForm > div > input {
+	outline: none;
+}
+
+.hostForm > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1px;
+}
+
+.hostButton {
+	border-radius: 5px;
+	outline: none;
+	color: black;
+	background-color: rgb(191, 191, 191);
+	border: 0px;
+	padding: 8px;
+	margin: 1px;
+	font-weight: bold;
+}
+
+.hostButton:hover {
+	cursor: pointer;
+	background-color: rgb(7, 7, 131);
+	transition: 0.5s;
+	color: rgb(191, 191, 191);
+}

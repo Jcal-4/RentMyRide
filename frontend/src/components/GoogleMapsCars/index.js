@@ -12,14 +12,16 @@ function GoogleMapCars() {
 		<ul className="carLinks__maps">
 			{cars?.map((car) => (
 				<NavLink to={`/car/${car.id}`}>
-					<li key={car.id}>{car.carModel}</li>
-					<img className="carDisplay__mapsPage" src={car.carImage}></img>
+					<div className="cardsContainer__mapPage">
+						<img className="carDisplay__mapsPage" src={car.carImage}></img>
+						<li key={car.id}>{car.carModel}</li>
+					</div>
 				</NavLink>
 			))}
 		</ul>
 	);
 
-	return <div>{sessionLinks}</div>;
+	return <div className="carScroll">{sessionLinks}</div>;
 }
 
 export default GoogleMapCars;

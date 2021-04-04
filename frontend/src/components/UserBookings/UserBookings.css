@@ -1,1 +1,6 @@
-
+.bookingsContainer {
+	position: absolute;
+	color: white;
+	top: 60px;
+	padding: 10px;
+}

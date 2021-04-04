@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
+import "./HostACar.css";
 
 function HostForm() {
+	let history = useHistory();
 	const dispatch = useDispatch();
-	const userId = useSelector((state) => state.session.user.id);
+	let sessionUser = useSelector((state) => state.session.user); // current session user
 	const [carMake, setCarMake] = useState("");
 	const [carModel, setSpotDetails] = useState("");
 	const [carYear, setCarYear] = useState("");
@@ -22,6 +24,7 @@ function HostForm() {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		let userId = sessionUser;
 
 		return dispatch(
 			hostActions.createCar({
@@ -41,10 +44,15 @@ function HostForm() {
 				address,
 			})
 		);
+		history.push("/");
 	};
 
+	if (!sessionUser) {
+		history.push("/login");
+	}
+
 	return (
-		<form onSubmit={onSubmit}>
+		<form className="hostForm" onSubmit={onSubmit}>
 			<div>
 				<div>
 					<label>Make</label>
@@ -254,7 +262,9 @@ function HostForm() {
 				/>
 			</div>
 			<div>
-				<button type="submit">Sign Up</button>
+				<button className="hostButton" type="submit">
+					Sign Up
+				</button>
 			</div>
 		</form>
 	);

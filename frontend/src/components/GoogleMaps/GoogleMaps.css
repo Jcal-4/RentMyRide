@@ -1,7 +1,7 @@
 .searchMap {
 	position: absolute;
-	top: 70px;
-	left: 385px;
+	top: 9%;
+	right: 5%;
 	transform: translateX(-50%);
 	width: 100%;
 	max-width: 275px;
@@ -19,7 +19,7 @@
 	max-width: 30px;
 	z-index: 10;
 	top: 75px;
-	left: 705px;
+	right: 2%;
 	background: none;
 	border: none;
 }
@@ -27,4 +27,9 @@
 .locate img {
 	width: 30px;
 	cursor: pointer;
+}
+
+.mapContainer {
+	display: flex;
+	justify-content: space-between;
 }
