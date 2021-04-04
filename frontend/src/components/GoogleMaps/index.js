@@ -21,6 +21,7 @@ import "@reach/combobox/styles.css";
 import "./GoogleMaps.css";
 import * as carLocater from "../../store/carlocation";
 import GoogleMapCars from "../GoogleMapsCars";
+import Geocode from "react-geocode";
 // END OF IMPORTS --------------------------------------------------------------------------------------------------------
 
 const libraries = ["places"];
@@ -34,7 +35,7 @@ const options = {
 const mapContainerStyle = {
 	height: "91.85vh",
 	width: "50vw",
-	top: 62.05,
+	top: 60.25,
 };
 // the center is where the map will first load into (COME BACK AND EDIT THIS TO THE USERS SAVED ADDRESS)
 const center = {
@@ -44,6 +45,26 @@ const center = {
 
 // GOOGLE MAP COMPONENT (main render) --------------------------------------------------------------------------------
 export default function GoogleMaps() {
+	let cars = useSelector((state) => state.car.carsList);
+	Geocode.setApiKey("AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q");
+	let addressesGeocode = []; // will store all the lat/lng in this array
+
+	// function geocodee(cars) {
+	// 	cars.forEach((car) => {
+	// 		Geocode.fromAddress(car.address).then(
+	// 			(response) => {
+	// 				const { lat, lng } = response.results[0].geometry.location;
+	// 				addressesGeocode.push({ lat: `${lat}`, lng: `${lng}` });
+	// 			},
+	// 			(error) => {
+	// 				console.error(error);
+	// 			}
+	// 		);
+	// 	});
+	// }
+	// // console.log(cars[0].address);
+	// geocodee(cars);
+	// console.log(addressesGeocode);
 	const { isLoaded, loadError } = useLoadScript({
 		googleMapsApiKey: "AIzaSyC_6E8DK05Pld0jbbPYVvX1SIATom7GR6Q",
 		libraries,
