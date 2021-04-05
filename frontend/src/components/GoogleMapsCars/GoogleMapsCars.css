@@ -37,10 +37,16 @@
 	transition: transform 100ms ease-in;
 	cursor: pointer;
 	box-shadow: 0 -2px 10px white;
-	color: white;
+	color: black;
 	text-decoration: none;
+	background-color: rgb(191, 191, 191);
 }
 
 .cardsContainer__mapPage:hover {
 	transform: scale(1.02);
+}
+
+.cardsContainer__mapPage > li {
+	padding: 5px;
+	text-decoration: none;
 }

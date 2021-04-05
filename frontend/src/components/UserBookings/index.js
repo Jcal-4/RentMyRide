@@ -10,6 +10,8 @@ function UserBookings() {
 		(state) => state.booking.bookingInfo.Bookings
 	);
 
+	// console.log(userBooking);
+
 	useEffect(() => {
 		dispatch(bookingActions.getBookings(User.id));
 	}, [dispatch]);
@@ -17,15 +19,22 @@ function UserBookings() {
 	return (
 		<div className="bookingsContainer">
 			<style type="text/css">{`.bookingsButton {display: none}`}</style>
-			<div>
-				{userBooking?.map((booking) => {
-					return (
-						<div key={booking.id}>
-							Start Date: {booking.startDate}, End Date: {booking.endDate}
-						</div>
-					);
-				})}
-			</div>
+			<table className="bookingTable">
+				<tr>
+					<th>Start Date</th>
+					<th>End Date</th>
+				</tr>
+				<tbody>
+					{userBooking?.map((booking) => {
+						return (
+							<tr>
+								<td>{booking.startDate}</td>
+								<td>{booking.endDate}</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
 		</div>
 	);
 }

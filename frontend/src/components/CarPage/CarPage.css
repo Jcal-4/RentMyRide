@@ -1,23 +1,103 @@
 .carDisplay__carPage {
 	width: 500px;
-	border: 1px solid white;
+}
+
+.title,
+.title__addon {
+	font-weight: bold;
+	font-size: 16px;
 }
 
 .reviewContainer {
-	border: 1px solid white;
-	max-width: 400px;
+	border: 1px solid rgb(191, 191, 191);
+	max-width: 550px;
 	padding: 0px;
-	/* position: relative; */
-	/* left: 800px; */
-	/* top: -150px; */
+	position: relative;
+	left: 50%;
+	top: -300px;
+	color: rgb(191, 191, 191);
+	border-radius: 5px;
+	padding: 3px;
+	box-shadow: 0 -2px 10px white;
 }
 
 .carRentee {
-	color: white;
+	color: rgb(191, 191, 191);
+	display: flex;
+	justify-content: center;
 }
 
 .carPageHolder {
-	border: 1px solid white;
+	/* border: 1px solid white; */
 	position: relative;
 	top: 50px;
+}
+
+.carDetails > li {
+	font-size: 18px;
+}
+
+.deleteCar {
+	border-radius: 5px;
+	outline: none;
+	color: black;
+	border: 0px;
+	padding: 8px;
+	margin: 1px;
+	font-weight: bold;
+}
+
+.deleteCar:hover {
+	cursor: pointer;
+	background-color: rgb(7, 7, 131);
+	transition: 0.5s;
+	color: white;
+}
+
+.carReviews {
+	border-top: 1px solid rgb(191, 191, 191);
+	color: rgb(191, 191, 191);
+}
+
+.rentCarr {
+	border: 1px solid rgb(191, 191, 191);
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35%;
+	left: 51%;
+	top: -350px;
+	background-color: rgb(191, 191, 191);
+	border-radius: 5px;
+	color: black;
+	box-shadow: 0 -2px 10px white;
+}
+
+.rentCarr > input {
+	margin: 5px;
+}
+
+.reviewForm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	left: 51%;
+	border: 1px solid rgb(191, 191, 191);
+	width: 35%;
+	margin-top: 20px;
+	top: -285px;
+	background-color: rgb(191, 191, 191);
+	color: black;
+	border-radius: 5px;
+	box-shadow: 0 -2px 10px white;
+}
+
+.reviewFormm > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 6px;
 }

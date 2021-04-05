@@ -29,10 +29,10 @@ function Navigation({ isLoaded }) {
 		sessionLinks = (
 			<>
 				<NavLink to="/login" className="login">
-					Login
+					<button className="login__button">Login</button>
 				</NavLink>
 				<NavLink to="/signup" className="signUp">
-					Signup
+					<button className="signup__button">Sign Up</button>
 				</NavLink>
 			</>
 		);
