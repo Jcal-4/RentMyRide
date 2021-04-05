@@ -20,6 +20,7 @@ const remove = () => {
 // THUNKS
 // adds a car to database
 export const createCar = (car) => async (dispatch) => {
+	console.log(car);
 	const response = await csrfFetch(`/api/user/host`, {
 		method: "POST",
 		headers: {

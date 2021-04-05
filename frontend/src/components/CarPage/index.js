@@ -24,7 +24,7 @@ function CarPage() {
 	const onDelete = (e) => {
 		e.preventDefault();
 		dispatch(hostActions.removeCar(carId));
-		return <Redirect to="/" />;
+		history.push("/");
 	};
 
 	const onCreate = (e) => {
@@ -76,9 +76,11 @@ function CarPage() {
 	if (sessionUser) {
 		if (sessionUser.id === car.userId) {
 			sessionResult = (
-				<div>
+				<div className="deleteContainer">
 					<form onSubmit={onDelete}>
-						<button type="submit">Delete</button>
+						<button className="deleteCar" type="submit">
+							Remove Car
+						</button>
 					</form>
 				</div>
 			);
@@ -86,7 +88,7 @@ function CarPage() {
 			// if the session user does not match the car then the session user can rent it
 			sessionResult = (
 				<div>
-					<form onSubmit={onCreate}>
+					<form className="rentCarr" onSubmit={onCreate}>
 						<label>Start Date</label>
 						<input
 							type="date"
@@ -101,7 +103,9 @@ function CarPage() {
 							onChange={(e) => setEndDate(e.target.value)}
 							required
 						></input>
-						<button type="submit">Rent</button>
+						<button className="rentCar__button" type="submit">
+							Rent
+						</button>
 					</form>
 				</div>
 			);
@@ -109,13 +113,15 @@ function CarPage() {
 
 		// Here we will decide whether or not to render a section to comment with
 		if (sessionUser.id === car.userId) {
-			commentsView = <h1>I can't comment it's my own car!</h1>;
+			commentsView = <h1></h1>;
 		} else {
 			commentsView = (
-				<div>
-					<form onSubmit={onReview}>
+				<div className="reviewForm">
+					<form className="reviewFormm" onSubmit={onReview}>
 						<div>
-							<label>Title</label>
+							<div>
+								<label>Title</label>
+							</div>
 							<input
 								type="text"
 								value={title}
@@ -123,7 +129,9 @@ function CarPage() {
 							></input>
 						</div>
 						<div>
-							<label>Description</label>
+							<div>
+								<label>Description</label>
+							</div>
 							<input
 								type="text"
 								value={description}
@@ -131,14 +139,20 @@ function CarPage() {
 							></input>
 						</div>
 						<div>
-							<label>Rating</label>
+							<div>
+								<label>Rating</label>
+							</div>
 							<input
 								type="number"
 								value={rating}
 								onChange={(e) => setRating(e.target.value)}
 							></input>
 						</div>
-						<button type="submit">Submit Review</button>
+						<div>
+							<button className="submitReview__button" type="submit">
+								Submit Review
+							</button>
+						</div>
 					</form>
 				</div>
 			);
@@ -154,12 +168,20 @@ function CarPage() {
 			<div>
 				<img className="carDisplay__carPage" src={car.carImage}></img>
 			</div>
+			<ul className="carDetails">
+				<li>Price Per Day: ${car.pricePerDay}</li>
+				<li>Year: {car.carYear}</li>
+				<li>Number of Seats: {car.seats}</li>
+				<li>{car.electric}</li>
+				<li>Autonomous: {car.autonomous}</li>
+				<li>Roadside Assistance: {car.roadsideAssistance}</li>
+			</ul>
 			{sessionResult}
 			<div>
 				<ul className="reviewContainer">
 					{car.Reviews?.map((review) => (
 						<li key={review.id}>
-							<div>
+							<div className="title">
 								{review.title} Rating {review.rating}
 							</div>
 							<div>{review.description}</div>
@@ -167,8 +189,8 @@ function CarPage() {
 					))}
 					{console.log(reviews)}
 					{reviews?.map((review) => (
-						<li key={review.id}>
-							<div>
+						<li className="carReviews" key={review.id}>
+							<div className="title__addon">
 								{review.title} Rating {review.rating}
 							</div>
 							<div>{review.description}</div>

@@ -24,9 +24,9 @@ function HostForm() {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		let userId = sessionUser;
+		let userId = sessionUser.id;
 
-		return dispatch(
+		dispatch(
 			hostActions.createCar({
 				userId,
 				carMake,
@@ -119,7 +119,7 @@ function HostForm() {
 			</div>
 			<div>
 				<div>
-					<label>Roadside Assistant</label>
+					<label>Roadside Assistance</label>
 				</div>
 				<select
 					value={roadsideAssistance}

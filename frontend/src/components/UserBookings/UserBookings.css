@@ -1,6 +1,65 @@
 .bookingsContainer {
 	position: absolute;
 	color: white;
-	top: 60px;
+	top: 100px;
 	padding: 10px;
+	width: 50vw;
+	left: 23.5%;
+}
+
+/* th {
+	background-color: #4caf50;
+	color: white;
+} */
+
+table {
+	border: 2px solid #172ba4;
+	background-color: #eee7db;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	color: black;
+}
+table td,
+table th {
+	border: 1px solid #aaaaaa;
+	padding: 3px 2px;
+}
+table tbody td {
+	font-size: 13px;
+}
+table th {
+	background: #262fa4;
+	background: -moz-linear-gradient(top, #5c63bb 0%, #3b43ad 66%, #262fa4 100%);
+	background: -webkit-linear-gradient(
+		top,
+		#5c63bb 0%,
+		#3b43ad 66%,
+		#262fa4 100%
+	);
+	background: linear-gradient(to bottom, #5c63bb 0%, #3b43ad 66%, #262fa4 100%);
+}
+table thead th {
+	font-size: 19px;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	border-left: 2px solid #5028a4;
+}
+table thead th:first-child {
+	border-left: none;
+}
+
+table tfoot td {
+	font-size: 13px;
+}
+table tfoot .links {
+	text-align: right;
+}
+table tfoot .links a {
+	display: inline-block;
+	background: #ffffff;
+	color: #a40808;
+	padding: 2px 8px;
+	border-radius: 5px;
 }
