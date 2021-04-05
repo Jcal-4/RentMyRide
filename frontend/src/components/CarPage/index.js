@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
 import * as bookingActions from "../../store/bookings";
 import * as reviewActions from "../../store/review";
@@ -9,9 +9,11 @@ import { Redirect } from "react-router-dom";
 import "./CarPage.css";
 
 function CarPage() {
+	let history = useHistory();
 	const dispatch = useDispatch();
 	let { carId } = useParams(); // car being rendered on the page
 	const car = useSelector((state) => state.car[carId]);
+	const reviews = useSelector((state) => state.review.review);
 	let sessionUser = useSelector((state) => state.session.user); // current session user
 	const [startDate, setStartDate] = useState("");
 	const [endDate, setEndDate] = useState("");
@@ -32,7 +34,7 @@ function CarPage() {
 		dispatch(
 			bookingActions.createBookings({ userId, carId, startDate, endDate })
 		);
-		// return <Redirect to="/" />;
+		history.push(`/users/${sessionUser.username}/bookings/`);
 	};
 
 	const onReview = (e) => {
@@ -49,6 +51,9 @@ function CarPage() {
 				rating,
 			})
 		);
+		setTitle("");
+		setDescription("");
+		setRating("");
 	};
 
 	let today = new Date();
@@ -141,8 +146,8 @@ function CarPage() {
 	}
 
 	return (
-		<div>
-			<h1>
+		<div className="carPageHolder">
+			<h1 className="carRentee">
 				{car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
 				{car.User.lastName}
 			</h1>
@@ -153,6 +158,15 @@ function CarPage() {
 			<div>
 				<ul className="reviewContainer">
 					{car.Reviews?.map((review) => (
+						<li key={review.id}>
+							<div>
+								{review.title} Rating {review.rating}
+							</div>
+							<div>{review.description}</div>
+						</li>
+					))}
+					{console.log(reviews)}
+					{reviews?.map((review) => (
 						<li key={review.id}>
 							<div>
 								{review.title} Rating {review.rating}

@@ -1,13 +1,23 @@
 .carDisplay__carPage {
 	width: 500px;
-	border: 1px solid black;
+	border: 1px solid white;
 }
 
 .reviewContainer {
-	border: 1px solid black;
+	border: 1px solid white;
 	max-width: 400px;
 	padding: 0px;
 	/* position: relative; */
 	/* left: 800px; */
 	/* top: -150px; */
+}
+
+.carRentee {
+	color: white;
+}
+
+.carPageHolder {
+	border: 1px solid white;
+	position: relative;
+	top: 50px;
 }

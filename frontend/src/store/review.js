@@ -21,8 +21,8 @@ export const postReview = (review) => async (dispatch) => {
 		body: JSON.stringify(review),
 	});
 	const data = await response.json();
-
-	dispatch(addReview(data.review));
+	// console.log(data);
+	dispatch(addReview(data));
 	return response;
 };
 
@@ -36,7 +36,10 @@ const reviewReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case REVIEW:
 			newState = Object.assign({}, state);
-			newState.car = action.payload;
+
+			const carReviews = newState.review; // will hold all of the reviews now
+			carReviews.push(action.payload); // will push the new reviews into here
+			newState.review.review = carReviews;
 			return newState;
 		default:
 			return state;
