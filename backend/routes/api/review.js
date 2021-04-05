@@ -18,7 +18,7 @@ router.post(
 			rating,
 		});
 
-		return res.json({ newReview });
+		return res.json(newReview);
 	})
 );
 

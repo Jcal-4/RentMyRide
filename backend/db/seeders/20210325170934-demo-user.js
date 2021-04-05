@@ -22,7 +22,7 @@ module.exports = {
 				},
 				{
 					email: " something@mail.com",
-					username: "something",
+					username: "Batman",
 					hashedPassword: bcrypt.hashSync("password"),
 					firstName: "Bat",
 					lastName: "Man",
@@ -33,16 +33,6 @@ module.exports = {
 					profileImageUrl:
 						"https://i.pinimg.com/originals/46/00/57/46005760e0544bcadaaee9b92387e8b8.png",
 				},
-				// {
-				// 	email: faker.internet.email(),
-				// 	username: "FakeUser1",
-				// 	hashedPassword: bcrypt.hashSync(faker.internet.password()),
-				// },
-				// {
-				// 	email: faker.internet.email(),
-				// 	username: "FakeUser2",
-				// 	hashedPassword: bcrypt.hashSync(faker.internet.password()),
-				// },
 			],
 			{}
 		);
