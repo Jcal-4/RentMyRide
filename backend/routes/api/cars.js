@@ -15,7 +15,6 @@ router.get(
 		const cars = await Car.findAll({
 			include: [User, Review],
 		});
-		console.log(cars);
 		res.send(cars);
 	})
 );
@@ -45,5 +44,7 @@ router.post(
 		res.send(cars);
 	})
 );
+
+
 
 module.exports = router;
