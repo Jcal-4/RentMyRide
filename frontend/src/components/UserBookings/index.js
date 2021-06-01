@@ -1,42 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as bookingActions from "../../store/bookings";
 import "./UserBookings.css";
 
 function UserBookings() {
-	const dispatch = useDispatch();
-	const User = useSelector((state) => state.session.user);
-	const userBooking = useSelector(
-		(state) => state.booking.bookingInfo.Bookings
-	);
+  const dispatch = useDispatch();
+  const User = useSelector((state) => state.session.user);
+  const userBooking = useSelector(
+    (state) => state.booking.bookingInfo.Bookings
+  );
 
-	// console.log(userBooking);
+  // console.log(userBooking);
 
-	useEffect(() => {
-		dispatch(bookingActions.getBookings(User.id));
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(bookingActions.getBookings(User.id));
+  }, [dispatch]);
 
-	return (
-		<div className="bookingsContainer">
-			<style type="text/css">{`.bookingsButton {display: none}`}</style>
-			<table className="bookingTable">
-				<tr>
-					<th>Start Date</th>
-					<th>End Date</th>
-				</tr>
-				<tbody>
-					{userBooking?.map((booking) => {
-						return (
-							<tr>
-								<td>{booking.startDate}</td>
-								<td>{booking.endDate}</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
-		</div>
-	);
+  return (
+    <div className="bookings">
+      <style type="text/css">{`.bookingsButton {display: none}`}</style>
+      <h1 className="bookings_header">Bookings</h1>
+      <div className="bookingsContainer">
+        {userBooking?.map((booking) => {
+          return (
+            <NavLink to={`/car/${booking.Car.id}`}>
+              <div className="booking_holder">
+                {console.log(booking, "booking info")}
+                <div className="rented_name">
+                  <p>
+                    {booking.Car.carMake} {booking.Car.carModel}
+                  </p>
+                </div>
+                <div className="someName">
+                  <img
+                    className="booked_car"
+                    src={booking.Car.carImage}
+                    alt=""
+                  ></img>
+                </div>
+                <div className="dates">
+                  <p className="start_date">Start: {booking.startDate}</p>
+                  <p className="end_date">End: {booking.endDate}</p>
+                </div>
+              </div>
+            </NavLink>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default UserBookings;

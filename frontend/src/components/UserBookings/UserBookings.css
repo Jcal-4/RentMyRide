@@ -1,65 +1,65 @@
 .bookingsContainer {
-	position: absolute;
-	color: white;
-	top: 100px;
-	padding: 10px;
-	width: 50vw;
-	left: 23.5%;
+  position: absolute;
+  color: white;
+  top: 20vh;
+  height: 80vh;
+  width: 100vw;
+  border-top: 2px solid rgb(30, 145, 139);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  text-decoration: none;
 }
 
-/* th {
-	background-color: #4caf50;
-	color: white;
-} */
-
-table {
-	border: 2px solid #172ba4;
-	background-color: #eee7db;
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	color: black;
-}
-table td,
-table th {
-	border: 1px solid #aaaaaa;
-	padding: 3px 2px;
-}
-table tbody td {
-	font-size: 13px;
-}
-table th {
-	background: #262fa4;
-	background: -moz-linear-gradient(top, #5c63bb 0%, #3b43ad 66%, #262fa4 100%);
-	background: -webkit-linear-gradient(
-		top,
-		#5c63bb 0%,
-		#3b43ad 66%,
-		#262fa4 100%
-	);
-	background: linear-gradient(to bottom, #5c63bb 0%, #3b43ad 66%, #262fa4 100%);
-}
-table thead th {
-	font-size: 19px;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: center;
-	border-left: 2px solid #5028a4;
-}
-table thead th:first-child {
-	border-left: none;
+.booking_holder {
+  border: 3px solid rgb(30, 145, 139);
+  width: 40vw;
+  border-radius: 15px;
+  object-fit: fill;
+  margin: 10px;
+  text-decoration: none;
 }
 
-table tfoot td {
-	font-size: 13px;
+.dates {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
 }
-table tfoot .links {
-	text-align: right;
+
+.start_date,
+.end_date {
+  /* border: 1px solid white; */
 }
-table tfoot .links a {
-	display: inline-block;
-	background: #ffffff;
-	color: #a40808;
-	padding: 2px 8px;
-	border-radius: 5px;
+
+.booked_car {
+  width: 100%;
+  object-fit: fill;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.someName {
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.rented_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+  text-decoration: none;
+}
+
+.bookings_header {
+  position: absolute;
+  top: 8vh;
+}
+
+.bookings {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
