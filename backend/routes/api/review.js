@@ -23,14 +23,13 @@ router.post(
 
 router.get(
   "/car/:carId",
-  asyncHandler(async (req, res, next) => {
+  asyncHandler(async (req, res) => {
     // grab the car id from the api url through req.params
     const carId = req.params.carId;
     const carReviews = await Review.findAll({
       where: {
         carId: carId,
       },
-      include: Car,
     });
     res.send(carReviews);
   })

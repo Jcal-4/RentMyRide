@@ -13,13 +13,18 @@ function CarPage() {
   const dispatch = useDispatch();
   let { carId } = useParams(); // car being rendered on the page
   const car = useSelector((state) => state.car[carId]);
-  const reviews = useSelector((state) => state.review.review);
+  const reviews = useSelector((state) => state.review);
   let sessionUser = useSelector((state) => state.session.user); // current session user
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   let [rating, setRating] = useState("");
+
+  useEffect(() => {
+    carId = Number(carId);
+    dispatch(reviewActions.getReviews(carId));
+  }, [dispatch, carId]);
 
   const onDelete = (e) => {
     e.preventDefault();
@@ -179,23 +184,15 @@ function CarPage() {
       {sessionResult}
       <div>
         <ul className="reviewContainer">
-          {car.Reviews?.map((review) => (
-            <li key={review.id}>
-              <div className="title">
-                {review.title} Rating {review.rating}
-              </div>
-              <div>{review.description}</div>
-            </li>
-          ))}
-          {console.log(reviews)}
-          {reviews?.map((review) => (
-            <li className="carReviews" key={review.id}>
-              <div className="title__addon">
-                {review.title} Rating {review.rating}
-              </div>
-              <div>{review.description}</div>
-            </li>
-          ))}
+          {reviews.length > 0 &&
+            reviews?.map((review) => (
+              <li className="carReviews" key={review.id}>
+                <div className="title__addon">
+                  {review.title} Rating {review.rating}
+                </div>
+                <div>{review.description}</div>
+              </li>
+            ))}
         </ul>
       </div>
       {commentsView}
