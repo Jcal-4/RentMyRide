@@ -26,7 +26,6 @@ function UserBookings() {
           return (
             <NavLink to={`/car/${booking.Car.id}`}>
               <div className="booking_holder">
-                {console.log(booking, "booking info")}
                 <div className="rented_name">
                   <p>
                     {booking.Car.carMake} {booking.Car.carModel}
