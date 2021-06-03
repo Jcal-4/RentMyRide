@@ -106,7 +106,7 @@ body {
 .rentCar__button:hover,
 .submitReview__button:hover {
   cursor: pointer;
-  background-color: rgb(7, 7, 131);
+  background-color: #494b68;
   transition: 0.5s;
 }
 
