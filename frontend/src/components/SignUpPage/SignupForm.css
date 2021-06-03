@@ -1,17 +1,17 @@
 .signUpForm {
-	background-color: white;
+	/* background-color: white; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 60vh;
-	width: 350px;
-	border: 1px solid black;
+	/* height: 60vh;
+	width: 350px; */
+	/* border: 1px solid black; */
 	position: relative;
-	left: 550px;
-	margin-top: 125px;
-	box-shadow: 0 -2px 10px white;
-	border-radius: 3px;
-	color: black;
+	/* left: 550px; */
+	/* margin-top: 125px; */
+	/* box-shadow: 0 -2px 10px white; */
+	/* border-radius: 3px; */
+	/* color: black; */
 }
 
 .signUpButton__signup {

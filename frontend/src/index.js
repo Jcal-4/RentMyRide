@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useRef, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as ReduxProvider, useDispatch } from 'react-redux';
 import './index.css';
 import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from './store/session'
+import { setModalMount } from "./store/modal";
 
 const store = configureStore();
 
@@ -23,18 +24,26 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 function Root() {
+  const modalMooringRef = useRef(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setModalMount(modalMooringRef.current));
+  }, [dispatch]);
+
   return (
-    <ReduxProvider store={store}>
       <BrowserRouter>
         <App />
+        <div ref={modalMooringRef} className="modal" />
       </BrowserRouter>
-    </ReduxProvider>
   );
 }
 
 ReactDOM.render(
   <React.StrictMode>
+  <ReduxProvider store={store}>
     <Root />
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
