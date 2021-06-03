@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import "./LoginForm.css";
 
-import { showModal, setCurrentModal } from "../../store/modal";
+import { showModal, setCurrentModal, hideModal } from "../../store/modal";
 import SignupFormPage from "../SignUpPage/index";
 
 function LoginFormPage() {
@@ -26,6 +26,7 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    dispatch(hideModal());
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();

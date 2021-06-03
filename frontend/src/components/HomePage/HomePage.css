@@ -3,6 +3,10 @@ body {
 	color: rgb(191, 191, 191);
 }
 
+/* * {
+	overflow-x: hidden;
+} */
+
 ::-webkit-scrollbar {
 	width: 7px;
 }
@@ -46,9 +50,6 @@ li {
 
 .cardsContainer > li {
 	text-decoration: none;
-}
-.cardsContainer > li {
-	text-decoration: none;
 	list-style-type: none;
 }
 
@@ -57,6 +58,7 @@ li {
 }
 .carLinks {
 	display: flex;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	color: white;
 }
@@ -65,4 +67,8 @@ li {
 	align-items: center;
 	justify-content: center;
 	color: white;
+}
+
+.car_holder {
+	width: 99vw
 }
