@@ -15,7 +15,7 @@ body {
   z-index: 1000;
   position: fixed;
   width: 100vw;
-  height: 60px;
+  height: 7vh;
   box-shadow: 0 -2px 5px white;
   padding: 7px;
 }

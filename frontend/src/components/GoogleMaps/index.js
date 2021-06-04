@@ -33,9 +33,9 @@ const options = {
 };
 // styling added to the google map such as the size and width
 const mapContainerStyle = {
-	height: "91.85vh",
+	height: "93vh",
 	width: "50vw",
-	top: 60.25,
+	top: "7vh",
 };
 // the center is where the map will first load into (COME BACK AND EDIT THIS TO THE USERS SAVED ADDRESS)
 const center = {
