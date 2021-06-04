@@ -11,12 +11,13 @@ body {
   align-items: center;
   /* border-bottom: 1px solid white; */
   background-color: #022140;
-  color: white;
+  color: #265077;
   z-index: 1000;
   position: fixed;
   width: 100vw;
   height: 60px;
   box-shadow: 0 -2px 5px white;
+  padding: 7px;
 }
 
 .navLinks {
@@ -49,9 +50,9 @@ body {
   border-radius: 25% 10%;
   background-color: black;
   padding: 11px;
-  color: white;
+  font-size: 15px;
   font-weight: bold;
-  color: rgb(191, 191, 191);
+  color: #51a09e;
   outline: none;
   border: none;
   margin: 1px;
@@ -62,9 +63,9 @@ body {
   border-radius: 10% 25%;
   padding: 11px;
   background-color: black;
-  color: white;
   font-weight: bold;
-  color: rgb(191, 191, 191);
+  font-size: 15px;
+  color: #51a09e;
   outline: none;
   border: none;
   margin: 1px;
@@ -73,12 +74,12 @@ body {
 
 .rentCar:hover {
   cursor: pointer;
-  background-color: #494b68;
+  background-color: #265077;
 }
 
 .hostCar:hover {
   cursor: pointer;
-  background-color: #494b68;
+  background-color: #265077;
 }
 
 .logoutButton,
@@ -87,15 +88,19 @@ body {
 .login__button,
 .signup__button,
 .rentCar__button,
-.submitReview__button {
-  border-radius: 5px;
+.submitReview__button,
+.login_button,
+.signUpButton_signup {
+  border-radius: 10px;
   outline: none;
-  color: rgb(191, 191, 191);
+  color: #51a09e;
   background-color: black;
   border: 0px;
-  padding: 8px;
-  margin: 1px;
+  padding: 9px;
+  margin: 3px;
   font-weight: bold;
+  font-size: 15px;
+  transition: 0.6s ease-in-out;
 }
 
 .logoutButton:hover,
@@ -104,10 +109,11 @@ body {
 .login__button:hover,
 .signup__button:hover,
 .rentCar__button:hover,
-.submitReview__button:hover {
+.submitReview__button:hover,
+.login_button:hover,
+.signUpButton_signup:hover {
   cursor: pointer;
-  background-color: #494b68;
-  transition: 0.5s;
+  background-color: #265077;
 }
 
 .login_signup_container {
@@ -116,22 +122,10 @@ body {
   justify-content: center;
 }
 
-.login_button,
-.signUpButton_signup {
-  background-color: black;
-  padding: 8px;
-  border-radius: 10px;
-  margin: 5px;
-  transition: 0.5s ease-in-out;
-}
-.login_button:hover,
-.signUpButton_signup:hover {
-  cursor: pointer;
-  background-color: #494b68;
-}
 
 .home {
   text-decoration: none;
-  color: #265077;
+  color: #51a09e;
   font-size: 14px;
+  font-weight: bold;
 }

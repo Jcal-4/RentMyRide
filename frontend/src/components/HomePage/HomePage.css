@@ -1,6 +1,14 @@
 body {
 	background-color: black;
 	color: rgb(191, 191, 191);
+	box-sizing: border-box;
+}
+
+*{
+	box-sizing: border-box;
+	/* overflow-x: hidden; */
+	margin: 0;
+	padding: 0;
 }
 
 /* * {
@@ -12,12 +20,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: linear-gradient(transparent, #00ccff);
+	background: linear-gradient(#265077,transparent);
 	border-radius: 6px;
 }
 
 .banner {
-	width: 100%;
+	width: 100vw;
 	position: relative;
 	top: -75px;
 	z-index: -100;
@@ -70,5 +78,6 @@ li {
 }
 
 .car_holder {
-	width: 99vw
+	width: 100%;
+	overflow-x: hidden
 }
