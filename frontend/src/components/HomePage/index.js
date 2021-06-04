@@ -19,7 +19,7 @@ function HomePage() {
       <h1 className="carContainer__header"> The Greatest Rides Await</h1>
       <ul className="carLinks">
         {cars?.slice(0, 6).map((car) => (
-          <NavLink to={`/car/${car.id}`}>
+          <NavLink className="links" to={`/car/${car.id}`}>
             <div className="cardsContainer">
               <img className="carDisplay__homePage" alt="" src={car.carImage}></img>
               <li className="model_car" key={car.id}>{car.carModel}</li>

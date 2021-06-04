@@ -11,7 +11,7 @@ function GoogleMapCars() {
 	let sessionLinks = (
 		<ul className="carLinks__maps">
 			{cars?.map((car) => (
-				<NavLink to={`/car/${car.id}`}>
+				<NavLink className="links" to={`/car/${car.id}`}>
 					<div className="cardsContainer__mapPage">
 						<img className="carDisplay__mapsPage" src={car.carImage}></img>
 						<li key={car.id}>{car.carModel}</li>

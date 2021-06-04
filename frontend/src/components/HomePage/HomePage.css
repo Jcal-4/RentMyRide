@@ -1,84 +1,89 @@
 body {
-	background-color: black;
-	color: rgb(191, 191, 191);
-	box-sizing: border-box;
+  background-color: black;
+  color: rgb(191, 191, 191);
+  box-sizing: border-box;
 }
 
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 ::-webkit-scrollbar {
-	width: 7px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: linear-gradient(#265077,transparent);
-	border-radius: 6px;
+  background: linear-gradient(#265077, transparent);
+  border-radius: 6px;
 }
 
 .banner {
-	width: 100vw;
-	position: relative;
-	top: -75px;
-	z-index: -100;
+  width: 100vw;
+  position: relative;
+  top: -75px;
+  z-index: -100;
 }
 
 li {
-	list-style: none;
-	text-decoration: none;
-	list-style-type: none;
+  list-style: none;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .cardsContainer > img {
-	object-fit: fill;
-	min-width: 300px;
-	width: 100%;
+  object-fit: fill;
+  min-width: 300px;
+  width: 100%;
 }
 
 .cardsContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #265077;
-	margin: 10px;
-	border-radius: 10px;
-	width: 450px;
-	overflow: hidden;
-	transition: transform 100ms ease-in;
-	cursor: pointer;
-	box-shadow: 0 -1px 5px white;
-	color: #265077;
-	text-decoration: none;
-	text-decoration: none;
-	list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #265077;
+  margin: 10px;
+  border-radius: 10px;
+  width: 450px;
+  overflow: hidden;
+  transition: transform 100ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 -1px 5px white;
+  color: #265077;
+  text-decoration: none;
+  text-decoration: none;
+  list-style-type: none;
 }
-
 
 .cardsContainer:hover {
-	transform: scale(1.06);
+  transform: scale(1.06);
 }
 .carLinks {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	color: #265077;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: #265077;
 }
 .carContainer__header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: #265077;
-	margin-bottom: 30px;
-	font-weight: bold;
-	font-size: 38px;
-	text-decoration: underline overline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #265077;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 38px;
+  text-decoration: underline overline;
 }
 
 .car_holder {
-	width: 100%;
-	overflow-x: hidden
+  width: 100%;
+  overflow-x: hidden;
+}
+.model_car {
+  text-decoration: none;
+  color: #51a09e;
+  font-size: 16px;
+  font-weight: bold;
 }
