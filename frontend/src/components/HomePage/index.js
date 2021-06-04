@@ -21,8 +21,8 @@ function HomePage() {
         {cars?.slice(0, 6).map((car) => (
           <NavLink to={`/car/${car.id}`}>
             <div className="cardsContainer">
-              <img className="carDisplay__homePage" src={car.carImage}></img>
-              <li key={car.id}>{car.carModel}</li>
+              <img className="carDisplay__homePage" alt="" src={car.carImage}></img>
+              <li className="model_car" key={car.id}>{car.carModel}</li>
             </div>
           </NavLink>
         ))}
