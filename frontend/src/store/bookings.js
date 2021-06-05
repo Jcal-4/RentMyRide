@@ -26,7 +26,6 @@ export const getBookings = (userId) => async (dispatch) => {
 
 // Create a booking
 export const createBookings = (booking) => async (dispatch) => {
-	console.log(booking);
 	const response = await csrfFetch(`/api/booking/bookCar`, {
 		method: "POST",
 		headers: {

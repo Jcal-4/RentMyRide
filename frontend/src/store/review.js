@@ -29,7 +29,6 @@ export const postReview = (review) => async (dispatch) => {
     body: JSON.stringify(review),
   });
   const data = await response.json();
-  console.log(data);
   dispatch(addReview(data));
   return response;
 };
@@ -48,9 +47,7 @@ const reviewReducer = (state = { review: [] }, action) => {
   switch (action.type) {
     case REVIEW:
       newState = Object.assign({}, state);
-      console.log(newState, "NewState**********************");
       const carReviews = Object.values(newState); // .push(action.payload)
-      console.log(carReviews, "carReviews-------------------------");
       carReviews.push(action.payload); // will push the new reviews into here
       newState[0] = carReviews;
       let newArr = [];

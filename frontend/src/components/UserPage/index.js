@@ -8,7 +8,6 @@ function UserPage() {
 	const dispatch = useDispatch();
 	const { userId } = useParams();
 	const user = useSelector((state) => state.user.userInfo);
-	console.log(user);
 
 	useEffect(() => {
 		dispatch(userActions.getUser(userId));
