@@ -50,6 +50,26 @@
   text-decoration: none;
 }
 
-.links{
-	text-decoration: none;
+.links {
+  text-decoration: none;
+  margin: 6px;
+}
+
+.car_map_info {
+  /* display: flex; */
+  color: #51a09e;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.car_map_info > div {
+  padding-bottom: 10px;
+}
+
+.carmap_info {
+  width: 100%;
 }

@@ -8,7 +8,6 @@ import { showModal, setCurrentModal } from "../../store/modal";
 import LoginFormPage from "../LoginFormPage/Login";
 import SignupFormPage from "../SignUpPage/index";
 
-
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -43,12 +42,12 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className="login_signup_container">
         <div>
-          <a onClick={showLogin} className="login_button">
+          <p onClick={showLogin} className="login_button">
             Login
-          </a>
+          </p>
         </div>
         <div className="signUpButton_signup">
-          <a onClick={showSignUp}>Signup</a>
+          <p onClick={showSignUp}>Signup</p>
         </div>
       </div>
     );

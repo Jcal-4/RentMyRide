@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import * as carActions from "../../store/car";
 import "./HomePage.css";
@@ -33,7 +33,7 @@ function HomePage() {
 
   return (
     <div className="car_holder">
-      <img src="images/RentMyRideBanner.jpg" className="banner" />
+      <img src="images/RentMyRideBanner.jpg" alt="" className="banner" />
       <div className="carsContainer"></div>
       {sessionLinks}
     </div>

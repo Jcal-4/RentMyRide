@@ -4,7 +4,6 @@ import { useParams, useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
 import * as bookingActions from "../../store/bookings";
 import * as reviewActions from "../../store/review";
-import { Redirect } from "react-router-dom";
 
 import "./CarPage.css";
 
@@ -22,8 +21,7 @@ function CarPage() {
   let [rating, setRating] = useState("");
 
   useEffect(() => {
-    carId = Number(carId);
-    dispatch(reviewActions.getReviews(carId));
+    dispatch(reviewActions.getReviews(Number(carId)));
   }, [dispatch, carId]);
 
   const onDelete = (e) => {
@@ -118,7 +116,7 @@ function CarPage() {
 
     // Here we will decide whether or not to render a section to comment with
     if (sessionUser.id === car.userId) {
-      commentsView = <h1></h1>;
+      commentsView = <div></div>;
     } else {
       commentsView = (
         <div className="reviewForm">
@@ -171,7 +169,7 @@ function CarPage() {
         {car.User.lastName}
       </h1>
       <div>
-        <img className="carDisplay__carPage" src={car.carImage}></img>
+        <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
       </div>
       <ul className="carDetails">
         <li>Price Per Day: ${car.pricePerDay}</li>

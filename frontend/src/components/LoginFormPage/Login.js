@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 
 import { showModal, setCurrentModal, hideModal } from "../../store/modal";
@@ -74,7 +74,7 @@ function LoginFormPage() {
           <div className="logRedirects">
             <div className="signupButton__login">
               <div>
-                <a onClick={showSignUp}>Signup</a>
+                <p onClick={showSignUp}>Signup</p>
               </div>
             </div>
           </div>

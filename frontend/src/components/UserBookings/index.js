@@ -15,7 +15,7 @@ function UserBookings() {
 
   useEffect(() => {
     dispatch(bookingActions.getBookings(User.id));
-  }, [dispatch]);
+  }, [dispatch, User]);
 
   return (
     <div className="bookings">

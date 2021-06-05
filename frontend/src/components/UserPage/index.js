@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import * as userActions from "../../store/user";
 import "./UserPage.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ function UserPage() {
 
 	useEffect(() => {
 		dispatch(userActions.getUser(userId));
-	}, [dispatch]);
+	}, [dispatch, userId]);
 
 	let sessionUser = (
 		<div className="profileContainer">
@@ -22,7 +22,7 @@ function UserPage() {
 			<div>
 				{user.city}, {user.state}
 			</div>
-			<img className="userProfilePic" src={user.profileImageUrl}></img>
+			<img className="userProfilePic" alt="" src={user.profileImageUrl}></img>
 		</div>
 	);
 	return (
