@@ -173,29 +173,33 @@ function CarPage() {
           <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
         </div>
       </div>
-      <ul className="carDetails">
-        <li>Price Per Day: ${car.pricePerDay}</li>
-        <li>Year: {car.carYear}</li>
-        <li>Number of Seats: {car.seats}</li>
-        <li>{car.electric}</li>
-        <li>Autonomous: {car.autonomous}</li>
-        <li>Roadside Assistance: {car.roadsideAssistance}</li>
-      </ul>
-      {sessionResult}
-      <div>
-        <ul className="reviewContainer">
-          {reviews.length > 0 &&
-            reviews?.map((review) => (
-              <li className="carReviews" key={review.id}>
-                <div className="title__addon">
-                  {review.title} Rating {review.rating}
-                </div>
-                <div>{review.description}</div>
-              </li>
-            ))}
+      <div className="car_div_2">
+        <ul className="carDetails">
+          <li>Price Per Day: ${car.pricePerDay}</li>
+          <li>Year: {car.carYear}</li>
+          <li>Number of Seats: {car.seats}</li>
+          <li>{car.electric}</li>
+          <li>Autonomous: {car.autonomous}</li>
+          <li>Roadside Assistance: {car.roadsideAssistance}</li>
         </ul>
+        {sessionResult}
       </div>
-      {commentsView}
+      <div className="car_div_3">
+        <div className="comment_box">{commentsView}</div>
+        <div>
+          <ul className="reviewContainer">
+            {reviews.length > 0 &&
+              reviews?.map((review) => (
+                <li className="carReviews" key={review.id}>
+                  <div className="title__addon">
+                    {review.title} Rating {review.rating}
+                  </div>
+                  <div>{review.description}</div>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
