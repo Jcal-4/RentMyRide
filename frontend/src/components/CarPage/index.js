@@ -188,7 +188,7 @@ function CarPage() {
       </div>
       <div className="car_div_3">
         <div className="comment_box">{commentsView}</div>
-        <div>
+        <div className="comments">
           <ul className="reviewContainer">
             {reviews.length > 0 &&
               reviews?.map((review) => (
