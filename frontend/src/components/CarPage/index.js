@@ -164,12 +164,14 @@ function CarPage() {
 
   return (
     <div className="carPageHolder">
-      <h1 className="carRentee">
-        {car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
-        {car.User.lastName}
-      </h1>
-      <div>
-        <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
+      <div className="car_div_1">
+        <h1 className="carRentee">
+          {car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
+          {car.User.lastName}
+        </h1>
+        <div>
+          <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
+        </div>
       </div>
       <ul className="carDetails">
         <li>Price Per Day: ${car.pricePerDay}</li>

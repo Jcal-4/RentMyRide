@@ -19,6 +19,15 @@ router.get(
 	})
 );
 
+// grab a car by id
+router.get("/car/:carId", asyncHandler(async (req, res) => {
+	const car = await Car.findByPk(req.params.carId, {
+		include: [User, Review]
+	})
+
+	res.send(car)
+}))
+
 router.delete(
 	"/car/:carId",
 	asyncHandler(async (req, res, next) => {
