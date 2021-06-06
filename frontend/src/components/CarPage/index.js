@@ -166,7 +166,7 @@ function CarPage() {
     <div className="carPageHolder">
       <div className="car_div_1">
         <h1 className="carRentee">
-          {car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
+          {car.carMake}, {car.carModel} by {car.User.firstName}{" "}
           {car.User.lastName}
         </h1>
         <div>
@@ -178,7 +178,7 @@ function CarPage() {
           <li>Price Per Day: ${car.pricePerDay}</li>
           <li>Year: {car.carYear}</li>
           <li>Number of Seats: {car.seats}</li>
-          <li>{car.electric}</li>
+          <li>Electric: {car.electric}</li>
           <li>Autonomous: {car.autonomous}</li>
           <li>Roadside Assistance: {car.roadsideAssistance}</li>
         </ul>
