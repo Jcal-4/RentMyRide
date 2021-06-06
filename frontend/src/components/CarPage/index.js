@@ -175,12 +175,14 @@ function CarPage() {
       </div>
       <div className="car_div_2">
         <ul className="carDetails">
-          <li>Price Per Day: ${car.pricePerDay}</li>
-          <li>Year: {car.carYear}</li>
-          <li>Number of Seats: {car.seats}</li>
-          <li>Electric: {car.electric}</li>
-          <li>Autonomous: {car.autonomous}</li>
-          <li>Roadside Assistance: {car.roadsideAssistance}</li>
+          <div className="car_details">
+            <li>Price Per Day: ${car.pricePerDay}</li>
+            <li>Year: {car.carYear}</li>
+            <li>Number of Seats: {car.seats}</li>
+            <li>Electric: {car.electric}</li>
+            <li>Autonomous: {car.autonomous}</li>
+            <li>Roadside Assistance: {car.roadsideAssistance}</li>
+          </div>
         </ul>
         {sessionResult}
       </div>
