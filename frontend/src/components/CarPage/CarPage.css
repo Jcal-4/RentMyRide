@@ -12,9 +12,6 @@
   border: 1px solid rgb(191, 191, 191);
   max-width: 550px;
   padding: 0px;
-  position: relative;
-  left: 50%;
-  top: -300px;
   color: rgb(191, 191, 191);
   border-radius: 5px;
   padding: 3px;
@@ -31,6 +28,12 @@
   /* border: 1px solid white; */
   position: relative;
   top: 7vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.carDetails {
+  width: 50vw;
 }
 
 .carDetails > li {
@@ -61,13 +64,10 @@
 
 .rentCarr {
   border: 1px solid rgb(191, 191, 191);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 35%;
-  left: 51%;
-  top: -350px;
   background-color: rgb(191, 191, 191);
   border-radius: 5px;
   color: black;
@@ -83,11 +83,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 51%;
   border: 1px solid rgb(191, 191, 191);
-  width: 35%;
-  margin-top: 20px;
-  top: -285px;
   background-color: rgb(191, 191, 191);
   color: black;
   border-radius: 5px;
@@ -100,4 +96,24 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 6px;
+}
+
+.car_div_1 {
+  border: 5px solid red;
+}
+.car_div_2 {
+  border: 5px solid blue;
+  display: flex;
+  width: 100vw;
+}
+.car_div_3 {
+  border: 5px solid green;
+}
+
+.rent_car_div {
+  width: 50vw;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
 }

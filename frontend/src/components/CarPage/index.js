@@ -90,7 +90,7 @@ function CarPage() {
     } else {
       // if the session user does not match the car then the session user can rent it
       sessionResult = (
-        <div>
+        <div className="rent_car_div">
           <form className="rentCarr" onSubmit={onCreate}>
             <label>Start Date</label>
             <input
