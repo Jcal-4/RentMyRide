@@ -46,22 +46,24 @@ function LoginFormPage() {
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <div>
+          <div className="login__holder">
             <div>
-              <label>Username</label>
+              <label className="login__text">Username</label>
             </div>
             <input
+              className="input_review"
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
               required
             />
           </div>
-          <div>
+          <div className="login__holder">
             <div>
-              <label>Password</label>
+              <label className="login__text">Password</label>
             </div>
             <input
+              className="input_review"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -69,12 +71,16 @@ function LoginFormPage() {
             />
           </div>
           <div className="loginButton">
-            <button type="submit">Log In</button>
+            <button className="login__button" type="submit">
+              Log In
+            </button>
           </div>
           <div className="logRedirects">
             <div className="signupButton__login">
               <div>
-                <p onClick={showSignUp}>Signup</p>
+                <button className="login__button" onClick={showSignUp}>
+                  Signup
+                </button>
               </div>
             </div>
           </div>
@@ -100,7 +106,9 @@ function LoginFormPage() {
               />
             </div>
             <div className="loginButton">
-              <button type="submit">Demo User</button>
+              <button className="login__button" type="submit">
+                Demo User
+              </button>
             </div>
           </form>
         </div>
