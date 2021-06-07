@@ -187,12 +187,12 @@ function CarPage() {
         {sessionResult}
       </div>
       <div className="car_div_3">
-        <div className="comment_box">{commentsView}</div>
         <div className="comments">
           <ul className="reviewContainer">
             {reviews.length > 0 &&
               reviews?.map((review) => (
                 <li className="carReviews" key={review.id}>
+                  {console.log(review)}
                   <div className="title__addon">
                     {review.title} Rating {review.rating}
                   </div>
@@ -201,6 +201,7 @@ function CarPage() {
               ))}
           </ul>
         </div>
+        <div className="comment_box">{commentsView}</div>
       </div>
     </div>
   );
