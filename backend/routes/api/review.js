@@ -3,6 +3,7 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { Review } = require("../../db/models");
 const { Car } = require("../../db/models");
+const { User } = require("../../db/models");
 
 router.post(
   "/",
@@ -30,6 +31,7 @@ router.get(
       where: {
         carId: carId,
       },
+      include: User,
     });
     res.send(carReviews);
   })
