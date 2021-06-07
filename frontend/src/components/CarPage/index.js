@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
 import * as bookingActions from "../../store/bookings";
 import * as reviewActions from "../../store/review";
+import { getCar } from "../../store/IndividualCar";
 
 import "./CarPage.css";
 
@@ -11,7 +12,7 @@ function CarPage() {
   let history = useHistory();
   const dispatch = useDispatch();
   let { carId } = useParams(); // car being rendered on the page
-  const car = useSelector((state) => state.car[carId]);
+  const car = useSelector((state) => state.individualCar);
   const reviews = useSelector((state) => state.review);
   let sessionUser = useSelector((state) => state.session.user); // current session user
   const [startDate, setStartDate] = useState("");
@@ -22,6 +23,10 @@ function CarPage() {
 
   useEffect(() => {
     dispatch(reviewActions.getReviews(Number(carId)));
+  }, [dispatch, carId]);
+
+  useEffect(() => {
+    dispatch(getCar(Number(carId)));
   }, [dispatch, carId]);
 
   const onDelete = (e) => {
@@ -165,10 +170,12 @@ function CarPage() {
   return (
     <div className="carPageHolder">
       <div className="car_div_1">
-        <h1 className="carRentee">
-          {car.carMake}, {car.carModel} by {car.User.firstName}{" "}
-          {car.User.lastName}
-        </h1>
+        {Object.keys(car).length > 0 && (
+          <h1 className="carRentee">
+            {car.carMake}, {car.carModel} by {car.User.firstName}{" "}
+            {car.User.lastName}
+          </h1>
+        )}
         <div>
           <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
         </div>
