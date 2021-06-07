@@ -1,5 +1,6 @@
 .carDisplay__carPage {
-  width: 500px;
+  width: 900px;
+  border-radius: 25px;
 }
 
 .title,
@@ -9,20 +10,20 @@
 }
 
 .reviewContainer {
-  border: 1px solid rgb(191, 191, 191);
-  max-width: 550px;
+  /* border: 1px solid rgb(191, 191, 191); */
+  width: 50%;
   padding: 0px;
-  position: relative;
-  left: 50%;
-  top: -300px;
-  color: rgb(191, 191, 191);
-  border-radius: 5px;
+  color: #51a09e;
   padding: 3px;
-  box-shadow: 0 -2px 10px white;
+  /* box-shadow: 0 -2px 10px white; */
+  border: 2px solid #265077;
+  background-color: #022140;
+  border-radius: 5px;
+  box-shadow: 0 -1px 5px white;
 }
 
 .carRentee {
-  color: rgb(191, 191, 191);
+  color: #51a09e;
   display: flex;
   justify-content: center;
 }
@@ -30,11 +31,24 @@
 .carPageHolder {
   /* border: 1px solid white; */
   position: relative;
-  top: 50px;
+  top: 7vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
-.carDetails > li {
-  font-size: 18px;
+.carDetails {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.car_details > li {
+  font-size: 20px;
+  font-weight: bold;
+  color: #51a09e;
+  padding: 6px;
 }
 
 .deleteCar {
@@ -55,27 +69,29 @@
 }
 
 .carReviews {
-  border: 0.5px solid rgb(191, 191, 191);
-  color: rgb(191, 191, 191);
+  /* border: 0.5px solid rgb(191, 191, 191); */
+  color: #51a09e;
+  margin-bottom: 15px;
 }
 
 .rentCarr {
-  border: 1px solid rgb(191, 191, 191);
-  position: relative;
+  border: 2px solid #265077;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35%;
-  left: 51%;
-  top: -350px;
-  background-color: rgb(191, 191, 191);
+  width: 75%;
+  background-color: #022140;
   border-radius: 5px;
-  color: black;
-  box-shadow: 0 -2px 10px white;
+  box-shadow: 0 -1px 5px white;
+  flex-direction: column;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #51a09e;
 }
 
 .rentCarr > input {
-  margin: 5px;
+  margin-bottom: 20px;
 }
 
 .reviewForm {
@@ -83,15 +99,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 51%;
-  border: 1px solid rgb(191, 191, 191);
-  width: 35%;
-  margin-top: 20px;
-  top: -285px;
-  background-color: rgb(191, 191, 191);
-  color: black;
+  border: 2px solid #265077;
+  background-color: #022140;
+  color: #51a09e;
   border-radius: 5px;
-  box-shadow: 0 -2px 10px white;
+  box-shadow: 0 -1px 5px white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 50%;
 }
 
 .reviewFormm > div {
@@ -100,4 +115,106 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 6px;
+}
+
+.car_div_1 {
+  /* border: 5px solid red; */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.car_div_2 {
+  /* border: 5px solid blue; */
+  display: flex;
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.car_div_3 {
+  /* border: 5px solid green; */
+  box-sizing: border-box;
+  width: 100%;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rent_car_div {
+  width: 49vw;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review_user_image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.review_user {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+}
+
+.review_user > p {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.title__addon {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.review_title {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.review_description {
+  margin-left: 5px;
+  color: #316494;
+  font-size: 18px;
+}
+
+.review_rate {
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  font-weight: bold;
+}
+
+.div_2_bar,
+.div_3_bar {
+  border: 1px groove #51a09e;
+  width: 80vw;
+  margin: 20px;
+}
+
+.div_2_holder {
+  display: flex;
 }

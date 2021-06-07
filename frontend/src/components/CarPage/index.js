@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import * as hostActions from "../../store/host";
 import * as bookingActions from "../../store/bookings";
 import * as reviewActions from "../../store/review";
+import { getCar } from "../../store/IndividualCar";
 
 import "./CarPage.css";
 
@@ -11,7 +12,7 @@ function CarPage() {
   let history = useHistory();
   const dispatch = useDispatch();
   let { carId } = useParams(); // car being rendered on the page
-  const car = useSelector((state) => state.car[carId]);
+  const car = useSelector((state) => state.individualCar);
   const reviews = useSelector((state) => state.review);
   let sessionUser = useSelector((state) => state.session.user); // current session user
   const [startDate, setStartDate] = useState("");
@@ -22,6 +23,10 @@ function CarPage() {
 
   useEffect(() => {
     dispatch(reviewActions.getReviews(Number(carId)));
+  }, [dispatch, carId]);
+
+  useEffect(() => {
+    dispatch(getCar(Number(carId)));
   }, [dispatch, carId]);
 
   const onDelete = (e) => {
@@ -90,7 +95,7 @@ function CarPage() {
     } else {
       // if the session user does not match the car then the session user can rent it
       sessionResult = (
-        <div>
+        <div className="rent_car_div">
           <form className="rentCarr" onSubmit={onCreate}>
             <label>Start Date</label>
             <input
@@ -164,36 +169,59 @@ function CarPage() {
 
   return (
     <div className="carPageHolder">
-      <h1 className="carRentee">
-        {car.carMake}, {car.carModel}, for rent by {car.User.firstName}{" "}
-        {car.User.lastName}
-      </h1>
-      <div>
-        <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
+      <div className="car_div_1">
+        {Object.keys(car).length > 0 && (
+          <h1 className="carRentee">
+            {car.carMake}, {car.carModel} by {car.User.firstName}{" "}
+            {car.User.lastName}
+          </h1>
+        )}
+        <div>
+          <img className="carDisplay__carPage" alt="" src={car.carImage}></img>
+        </div>
       </div>
-      <ul className="carDetails">
-        <li>Price Per Day: ${car.pricePerDay}</li>
-        <li>Year: {car.carYear}</li>
-        <li>Number of Seats: {car.seats}</li>
-        <li>{car.electric}</li>
-        <li>Autonomous: {car.autonomous}</li>
-        <li>Roadside Assistance: {car.roadsideAssistance}</li>
-      </ul>
-      {sessionResult}
-      <div>
-        <ul className="reviewContainer">
-          {reviews.length > 0 &&
-            reviews?.map((review) => (
-              <li className="carReviews" key={review.id}>
-                <div className="title__addon">
-                  {review.title} Rating {review.rating}
+      <div className="car_div_2">
+        <div className="div_2_bar"></div>
+        <div className="div_2_holder">
+          <ul className="carDetails">
+            <div className="car_details">
+              <li>Price Per Day: ${car.pricePerDay}</li>
+              <li>Year: {car.carYear}</li>
+              <li>Number of Seats: {car.seats}</li>
+              <li>Electric: {car.electric}</li>
+              <li>Autonomous: {car.autonomous}</li>
+              <li>Roadside Assistance: {car.roadsideAssistance}</li>
+            </div>
+          </ul>
+          {sessionResult}
+        </div>
+        <div className="div_3_bar"></div>
+      </div>
+      <div className="car_div_3">
+        <div className="comments">
+          <ul className="reviewContainer">
+            {reviews.length > 0 &&
+              reviews?.map((review) => (
+                <div className="carReviews" key={review.id}>
+                  <div className="review_user">
+                    <img
+                      className="review_user_image"
+                      src={review.User.profileImageUrl}
+                      alt=""
+                    ></img>
+                    <p>{review.User.firstName}</p>
+                    <div className="review_rate">Rating: {review.rating}</div>
+                  </div>
+                  <div className="title__addon">
+                    <div className="review_title">{review.title}</div>
+                  </div>
+                  <div className="review_description">{review.description}</div>
                 </div>
-                <div>{review.description}</div>
-              </li>
-            ))}
-        </ul>
+              ))}
+          </ul>
+        </div>
+        <div className="comment_box">{commentsView}</div>
       </div>
-      {commentsView}
     </div>
   );
 }

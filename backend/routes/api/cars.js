@@ -9,41 +9,51 @@ const { Review } = require("../../db/models");
 
 // grab all the cars so we are able to render them out anywhere on the page
 router.get(
-	"/car",
-	asyncHandler(async (req, res) => {
-		// do a query for all of the cars in the db
-		const cars = await Car.findAll({
-			include: [User, Review],
-		});
-		res.send(cars);
-	})
+  "/car",
+  asyncHandler(async (req, res) => {
+    // do a query for all of the cars in the db
+    const cars = await Car.findAll({
+      include: [User, { model: Review, include: User }],
+    });
+    res.send(cars);
+  })
+);
+
+// grab a car by id
+router.get(
+  "/car/:carId",
+  asyncHandler(async (req, res) => {
+    const car = await Car.findByPk(req.params.carId, {
+      include: [User, { model: Review, include: User }],
+    });
+
+    res.send(car);
+  })
 );
 
 router.delete(
-	"/car/:carId",
-	asyncHandler(async (req, res, next) => {
-		const carId = req.params.carId;
-		const car = await Car.findByPk(carId);
-		await car.destroy();
-		res.json({ message: "successful" });
-	})
+  "/car/:carId",
+  asyncHandler(async (req, res, next) => {
+    const carId = req.params.carId;
+    const car = await Car.findByPk(carId);
+    await car.destroy();
+    res.json({ message: "successful" });
+  })
 );
 
 // grab cars where certain location
 router.post(
-	"/locations",
-	asyncHandler(async (req, res) => {
-		// do a query for all of the cars in the db with the cities matching the passed in info
-		const cars = await Car.findAll({
-			where: {
-				cityName: req.body.cityName,
-			},
-		});
+  "/locations",
+  asyncHandler(async (req, res) => {
+    // do a query for all of the cars in the db with the cities matching the passed in info
+    const cars = await Car.findAll({
+      where: {
+        cityName: req.body.cityName,
+      },
+    });
 
-		res.send(cars);
-	})
+    res.send(cars);
+  })
 );
-
-
 
 module.exports = router;
