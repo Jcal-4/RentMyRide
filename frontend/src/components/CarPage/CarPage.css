@@ -71,6 +71,7 @@
 .carReviews {
   /* border: 0.5px solid rgb(191, 191, 191); */
   color: #51a09e;
+  margin-bottom: 15px;
 }
 
 .rentCarr {
@@ -131,18 +132,21 @@
   height: 300px;
   box-sizing: border-box;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .car_div_3 {
   /* border: 5px solid green; */
   box-sizing: border-box;
   width: 100%;
+  /* display: flex; */
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .rent_car_div {
-  width: 50vw;
+  width: 49vw;
   display: flex;
   /* justify-content: center; */
   flex-direction: column;
@@ -159,4 +163,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.review_user_image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.review_user {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+}
+
+.review_user > p {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.title__addon {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.review_title {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.review_description {
+  margin-left: 5px;
+  color: #316494;
+  font-size: 18px;
+}
+
+.review_rate {
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  font-weight: bold;
+}
+
+.div_2_bar,
+.div_3_bar {
+  border: 1px groove #51a09e;
+  width: 80vw;
+  margin: 20px;
+}
+
+.div_2_holder {
+  display: flex;
 }

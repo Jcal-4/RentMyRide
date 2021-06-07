@@ -181,30 +181,42 @@ function CarPage() {
         </div>
       </div>
       <div className="car_div_2">
-        <ul className="carDetails">
-          <div className="car_details">
-            <li>Price Per Day: ${car.pricePerDay}</li>
-            <li>Year: {car.carYear}</li>
-            <li>Number of Seats: {car.seats}</li>
-            <li>Electric: {car.electric}</li>
-            <li>Autonomous: {car.autonomous}</li>
-            <li>Roadside Assistance: {car.roadsideAssistance}</li>
-          </div>
-        </ul>
-        {sessionResult}
+        <div className="div_2_bar"></div>
+        <div className="div_2_holder">
+          <ul className="carDetails">
+            <div className="car_details">
+              <li>Price Per Day: ${car.pricePerDay}</li>
+              <li>Year: {car.carYear}</li>
+              <li>Number of Seats: {car.seats}</li>
+              <li>Electric: {car.electric}</li>
+              <li>Autonomous: {car.autonomous}</li>
+              <li>Roadside Assistance: {car.roadsideAssistance}</li>
+            </div>
+          </ul>
+          {sessionResult}
+        </div>
+        <div className="div_3_bar"></div>
       </div>
       <div className="car_div_3">
         <div className="comments">
           <ul className="reviewContainer">
             {reviews.length > 0 &&
               reviews?.map((review) => (
-                <li className="carReviews" key={review.id}>
-                  {console.log(review)}
-                  <div className="title__addon">
-                    {review.title} Rating {review.rating}
+                <div className="carReviews" key={review.id}>
+                  <div className="review_user">
+                    <img
+                      className="review_user_image"
+                      src={review.User.profileImageUrl}
+                      alt=""
+                    ></img>
+                    <p>{review.User.firstName}</p>
+                    <div className="review_rate">Rating: {review.rating}</div>
                   </div>
-                  <div>{review.description}</div>
-                </li>
+                  <div className="title__addon">
+                    <div className="review_title">{review.title}</div>
+                  </div>
+                  <div className="review_description">{review.description}</div>
+                </div>
               ))}
           </ul>
         </div>
