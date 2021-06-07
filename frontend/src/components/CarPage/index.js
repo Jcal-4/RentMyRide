@@ -99,6 +99,7 @@ function CarPage() {
           <form className="rentCarr" onSubmit={onCreate}>
             <label>Start Date</label>
             <input
+              className="input_review"
               type="date"
               value={chosenDate}
               onChange={(e) => setStartDate(e.target.value)}
@@ -107,6 +108,7 @@ function CarPage() {
             <label>End Date</label>
             <input
               type="date"
+              className="input_review"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               required
@@ -131,6 +133,7 @@ function CarPage() {
                 <label>Title</label>
               </div>
               <input
+                className="input_review"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -141,6 +144,7 @@ function CarPage() {
                 <label>Description</label>
               </div>
               <input
+                className="input_review"
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -151,6 +155,7 @@ function CarPage() {
                 <label>Rating</label>
               </div>
               <input
+                className="input_review"
                 type="number"
                 value={rating}
                 onChange={(e) => setRating(e.target.value)}
