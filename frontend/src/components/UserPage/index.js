@@ -3,6 +3,7 @@ import * as userActions from "../../store/user";
 import "./UserPage.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -24,8 +25,32 @@ function UserPage() {
           {user.city}, {user.state}
         </div>
         <img className="userProfilePic" alt="" src={user.profileImageUrl}></img>
+        <div>
+          <p>About: {user.about}</p>
+        </div>
       </div>
-      <div className="user_cars"></div>
+      <div className="user_cars_holder">
+        <div>
+          <h1>My Cars</h1>
+        </div>
+        <div className="user_cars">
+          {user.Cars.length > 0 &&
+            user.Cars.map((car) => (
+              <NavLink className="links" to={`/car/${car.id}`}>
+                <div className="cardsContainer">
+                  <img
+                    className="carDisplay__homePage"
+                    alt=""
+                    src={car.carImage}
+                  ></img>
+                  <li className="model_car" key={car.id}>
+                    {car.carModel}
+                  </li>
+                </div>
+              </NavLink>
+            ))}
+        </div>
+      </div>
     </div>
   );
 }
