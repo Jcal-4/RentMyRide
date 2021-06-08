@@ -1,27 +1,36 @@
 .userProfilePic {
-	width: 175px;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
 }
 
 .profileContainer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	position: relative;
-	top: 205px;
-	left: 31%;
-	color: white;
-	width: 35%;
-	box-shadow: 0 -2px 10px white;
-	padding: 5px;
-	border-radius: 5px;
-	font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  color: white;
+  width: 25%;
+  box-shadow: 0 -2px 10px white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 40px;
 }
 
 .profileContainer > div {
-	margin: 2.5px;
+  margin: 2.5px;
 }
 
 .profileContainer > img {
-	margin: 5px;
+  margin: 5px;
+}
+
+.profile_holder {
+  position: relative;
+  top: 7vh;
+  width: 100%;
+  display: flex;
 }
