@@ -20,6 +20,7 @@
   margin-top: 55px;
   margin-left: 45px;
   color: #51a09e;
+  border: 2px solid #265077;
 }
 
 .profileContainer > div {
@@ -54,5 +55,10 @@
 }
 
 .profile_header {
-  padding-top: 15px;
+  padding-top: 20px;
+  margin-bottom: -20px;
+}
+
+.profile_header > h1 {
+  text-decoration: underline overline;
 }
