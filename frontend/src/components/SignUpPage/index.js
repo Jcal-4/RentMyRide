@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
 
-import { showModal, setCurrentModal } from "../../store/modal";
+import { showModal, setCurrentModal, hideModal } from "../../store/modal";
 import LoginFormPage from "../LoginFormPage/Login";
 
 function SignupFormPage() {
@@ -34,6 +34,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
+      dispatch(hideModal());
       return dispatch(
         sessionActions.signup({
           email,
