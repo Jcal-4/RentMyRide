@@ -17,7 +17,7 @@
   padding: 5px;
   border-radius: 5px;
   font-size: 20px;
-  margin-top: 45px;
+  margin-top: 55px;
   margin-left: 45px;
   color: #51a09e;
 }
@@ -39,16 +39,20 @@
 }
 
 .user_cars {
-  margin-top: 40px;
+  margin-top: 20px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 100px;
+  padding: 0 140px;
 }
 
 .user_cars_holder {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.profile_header {
+  padding-top: 15px;
 }

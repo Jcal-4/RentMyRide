@@ -30,25 +30,29 @@ function UserPage() {
         </div>
       </div>
       <div className="user_cars_holder">
-        <div>
+        <div className="profile_header">
           <h1>My Cars</h1>
         </div>
         <div className="user_cars">
-          {user.Cars.length > 0 &&
-            user.Cars.map((car) => (
-              <NavLink className="links" to={`/car/${car.id}`}>
-                <div className="cardsContainer">
-                  <img
-                    className="carDisplay__homePage"
-                    alt=""
-                    src={car.carImage}
-                  ></img>
-                  <li className="model_car" key={car.id}>
-                    {car.carModel}
-                  </li>
-                </div>
-              </NavLink>
-            ))}
+          {user.Cars && (
+            <div className="user_cars">
+              {user.Cars.length > 0 &&
+                user.Cars.map((car) => (
+                  <NavLink className="links" to={`/car/${car.id}`}>
+                    <div className="cardsContainer">
+                      <img
+                        className="carDisplay__homePage"
+                        alt=""
+                        src={car.carImage}
+                      ></img>
+                      <li className="model_car" key={car.id}>
+                        {car.carModel}
+                      </li>
+                    </div>
+                  </NavLink>
+                ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
