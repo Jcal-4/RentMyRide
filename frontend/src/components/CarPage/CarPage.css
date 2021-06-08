@@ -218,3 +218,10 @@
 .div_2_holder {
   display: flex;
 }
+
+.input_review {
+  border: 1px solid white;
+  outline: none;
+  border-radius: 15px;
+  padding: 2px;
+}

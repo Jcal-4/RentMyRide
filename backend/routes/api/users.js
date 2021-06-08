@@ -10,37 +10,63 @@ const { User } = require("../../db/models");
 
 // Validators
 const validateSignup = [
-	check("email")
-		.exists({ checkFalsy: true })
-		.isEmail()
-		.withMessage("Please provide a valid email."),
-	check("username")
-		.exists({ checkFalsy: true })
-		.isLength({ min: 4 })
-		.withMessage("Please provide a username with at least 4 characters."),
-	check("username").not().isEmail().withMessage("Username cannot be an email."),
-	check("password")
-		.exists({ checkFalsy: true })
-		.isLength({ min: 6 })
-		.withMessage("Password must be 6 characters or more."),
-	handleValidationErrors,
+  check("email")
+    .exists({ checkFalsy: true })
+    .isEmail()
+    .withMessage("Please provide a valid email."),
+  check("username")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 4 })
+    .withMessage("Please provide a username with at least 4 characters."),
+  check("firstName")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 4 })
+    .withMessage("Please provide a first name with at least 4 characters."),
+  check("username").not().isEmail().withMessage("Username cannot be an email."),
+  check("password")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 6 })
+    .withMessage("Password must be 6 characters or more."),
+  handleValidationErrors,
 ];
 
 // Sign up ******************************************************************
 // the sign up method from the User model will create the user in the DB
 router.post(
-	"",
-	validateSignup,
-	asyncHandler(async (req, res) => {
-		const { email, password, username } = req.body;
-		const user = await User.signup({ email, username, password });
+  "",
+  validateSignup,
+  asyncHandler(async (req, res) => {
+    const {
+      email,
+      password,
+      username,
+      firstName,
+      lastName,
+      about,
+      city,
+      state,
+      address,
+      profileImageUrl,
+    } = req.body;
+    const user = await User.signup({
+      email,
+      username,
+      password,
+      firstName,
+      lastName,
+      about,
+      city,
+      state,
+      address,
+      profileImageUrl,
+    });
 
-		await setTokenCookie(res, user);
+    await setTokenCookie(res, user);
 
-		return res.json({
-			user,
-		});
-	})
+    return res.json({
+      user,
+    });
+  })
 );
 
 module.exports = router;

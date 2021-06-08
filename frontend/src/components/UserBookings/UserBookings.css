@@ -55,11 +55,13 @@
 
 .bookings_header {
   position: absolute;
-  top: 8vh;
+  text-decoration: underline overline;
+  top: 10vh;
 }
 
 .bookings {
   display: flex;
   justify-content: center;
   text-decoration: none;
+  color: #51a09e;
 }

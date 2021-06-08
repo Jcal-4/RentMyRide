@@ -73,3 +73,9 @@
 .carmap_info {
   width: 100%;
 }
+
+.booking_holder {
+  color: #51a09e;
+  font-weight: bold;
+  font-size: 20px;
+}

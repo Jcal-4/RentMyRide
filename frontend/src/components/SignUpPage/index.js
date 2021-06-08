@@ -4,9 +4,8 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
 
-import { showModal, setCurrentModal } from "../../store/modal";
+import { showModal, setCurrentModal, hideModal } from "../../store/modal";
 import LoginFormPage from "../LoginFormPage/Login";
-
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -15,6 +14,13 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [about, setAbout] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [address, setAddress] = useState("");
+  const [profileImageUrl, setProfileImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -28,8 +34,20 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
+      dispatch(hideModal());
       return dispatch(
-        sessionActions.signup({ email, username, password })
+        sessionActions.signup({
+          email,
+          username,
+          password,
+          firstName,
+          lastName,
+          about,
+          city,
+          state,
+          address,
+          profileImageUrl,
+        })
       ).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -48,44 +66,132 @@ function SignupFormPage() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <div className="email__signup">
+        <div className="login__holder">
           <div>
-            <label>Email</label>
+            <label className="login__text">Email</label>
           </div>
           <input
+            className="input_review"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="login__holder">
           <div>
-            <label>Username</label>
+            <label className="login__text">Username</label>
           </div>
           <input
+            className="input_review"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="login__holder">
           <div>
-            <label>Password</label>
+            <label className="login__text">First Name</label>
           </div>
           <input
+            className="input_review"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">Last Name</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">About</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">City</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">State</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">Address</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">Profile Image Url</label>
+          </div>
+          <input
+            className="input_review"
+            type="text"
+            value={profileImageUrl}
+            onChange={(e) => setProfileImageUrl(e.target.value)}
+            required
+          />
+        </div>
+        <div className="login__holder">
+          <div>
+            <label className="login__text">Password</label>
+          </div>
+          <input
+            className="input_review"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="login__holder">
           <div>
-            <label>Confirm Password</label>
+            <label className="login__text">Confirm Password</label>
           </div>
           <input
+            className="input_review"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -93,14 +199,16 @@ function SignupFormPage() {
           />
         </div>
         <div className="signUpButton__signup">
-          <button type="submit">Sign Up</button>
+          <button className="login__button" type="submit">
+            Sign Up
+          </button>
         </div>
         <div className="logRedirects">
           <div className="signupButton__signup">
             <div>
-              <p onClick={showLogin}>
+              <button className="login__button" onClick={showLogin}>
                 Login
-              </p>
+              </button>
             </div>
           </div>
         </div>

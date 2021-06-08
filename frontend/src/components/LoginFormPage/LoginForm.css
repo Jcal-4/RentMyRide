@@ -1,46 +1,45 @@
 .loginForm {
-	/* background-color: white; */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	/* height: 60vh; */
-	/* width: 350px; */
-	/* border: 1px solid black; */
-	position: relative;
-	/* left: 550px; */
-	/* margin-top: 125px; */
-	/* box-shadow: 0 -2px 10px white; */
-	/* color: black; */
-	/* border-radius: 3px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  color: #51a09e;
 }
 
 .logRedirects {
-	display: flex;
-	/* border: 1px solid black; */
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .loginButton {
-	display: flex;
-	justify-content: center;
-	/* border: 1px solid black; */
-	margin-top: 15px;
-}
-
-.background__login {
-	/* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .homeButton__login,
 .signupButton__login {
-	text-decoration: none;
-	padding: 10px;
+  text-decoration: none;
+  padding: 10px;
 }
 
 .DemoContainer {
-	position: relative;
+  position: relative;
+}
+
+.login__holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__text {
+  font-weight: bold;
+  font-size: 18px;
+  color: #51a09e;
 }
