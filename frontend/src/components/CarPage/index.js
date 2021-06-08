@@ -10,6 +10,7 @@ import "./CarPage.css";
 
 function CarPage() {
   let history = useHistory();
+  const User = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   let { carId } = useParams(); // car being rendered on the page
   const car = useSelector((state) => state.individualCar);
@@ -42,6 +43,7 @@ function CarPage() {
     dispatch(
       bookingActions.createBookings({ userId, carId, startDate, endDate })
     );
+    dispatch(bookingActions.getBookings(User.id));
     history.push(`/users/${sessionUser.username}/bookings/`);
   };
 

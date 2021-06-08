@@ -11,8 +11,6 @@ function UserBookings() {
     (state) => state.booking.bookingInfo.Bookings
   );
 
-  // console.log(userBooking);
-
   useEffect(() => {
     dispatch(bookingActions.getBookings(User.id));
   }, [dispatch, User]);
@@ -21,6 +19,7 @@ function UserBookings() {
     <div className="bookings">
       <style type="text/css">{`.bookingsButton {display: none}`}</style>
       <h1 className="bookings_header">Bookings</h1>
+
       <div className="bookingsContainer">
         {userBooking?.map((booking) => {
           return (
