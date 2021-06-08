@@ -19,33 +19,34 @@ function UserBookings() {
     <div className="bookings">
       <style type="text/css">{`.bookingsButton {display: none}`}</style>
       <h1 className="bookings_header">Bookings</h1>
-
-      <div className="bookingsContainer">
-        {userBooking?.map((booking) => {
-          return (
-            <NavLink to={`/car/${booking.Car.id}`}>
-              <div className="booking_holder">
-                <div className="rented_name">
-                  <p>
-                    {booking.Car.carMake} {booking.Car.carModel}
-                  </p>
+      {userBooking && userBooking.length > 0 && (
+        <div className="bookingsContainer">
+          {userBooking?.map((booking) => {
+            return (
+              <NavLink to={`/car/${booking.Car.id}`}>
+                <div className="booking_holder">
+                  <div className="rented_name">
+                    <p>
+                      {booking.Car.carMake} {booking.Car.carModel}
+                    </p>
+                  </div>
+                  <div className="someName">
+                    <img
+                      className="booked_car"
+                      src={booking.Car.carImage}
+                      alt=""
+                    ></img>
+                  </div>
+                  <div className="dates">
+                    <p className="start_date">Start: {booking.startDate}</p>
+                    <p className="end_date">End: {booking.endDate}</p>
+                  </div>
                 </div>
-                <div className="someName">
-                  <img
-                    className="booked_car"
-                    src={booking.Car.carImage}
-                    alt=""
-                  ></img>
-                </div>
-                <div className="dates">
-                  <p className="start_date">Start: {booking.startDate}</p>
-                  <p className="end_date">End: {booking.endDate}</p>
-                </div>
-              </div>
-            </NavLink>
-          );
-        })}
-      </div>
+              </NavLink>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
