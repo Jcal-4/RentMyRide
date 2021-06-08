@@ -23,7 +23,7 @@ function UserBookings() {
         <div className="bookingsContainer">
           {userBooking?.map((booking) => {
             return (
-              <NavLink to={`/car/${booking.Car.id}`}>
+              <NavLink className="links" to={`/car/${booking.Car.id}`}>
                 <div className="booking_holder">
                   <div className="rented_name">
                     <p>
