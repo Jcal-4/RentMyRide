@@ -13,22 +13,20 @@ RentMyRide is a clone of AirBnB with a focus on allowing users to rent a luxury 
 * Removing Cars- Users can delete car they are hosting
 * Hosting- Any user can host cars
 
-
-
-
 *********************
 ## GoogleMap Car Finder
 All users can search cars for rent through the Google Map search funcionality. As the user types on the search bar the user will recieve location recommendations to autofill. Once a location has been selected the cars will in that location will render right next to the map for the user to choose from.
 
 ![GoogleSearchAPI](https://github.com/JairoCal/RentMyRide/blob/main/wiki_images/LookUpCars.png)
 
-## Comments and Categories
-**Categories** allows users to view videos based only on the categories they follow based on their preference on user signup. Each video will render **comments** on the right Navbar after having clicked on a video. A logged in user will then have the option to comment on the chosen video either through the input box or with a GIF through the use of Giphys api.
+## Bookings
+Through the car page all logged in users can book any car of their choosing for anytime they like. The booking is done through a form that only requires the start date and the end date of the renting period.
 ![BookCar](https://github.com/JairoCal/RentMyRide/blob/main/wiki_images/UserCanBookCar.png)
 
-
-## Direct Messaging
-**Live Chat Meessaging** implemented through **Websockets** allows users to communicate with others through real time. Users can go to their messages and chat with someone they've previously messaged or can initiate a chat with a new user from the homepage by selecting on a users name.
+## My Bookings
+Any user has booked any car will be able to see all of their booked cars through the MyBookings. Users will be able to scroll down and see the image and date period for their bookings.
 ![BookedCars](https://github.com/JairoCal/RentMyRide/blob/main/wiki_images/ViewBookedCars.png)
 
+## Car Reviews
+All logged in users are able to leave reviews for any cars they'd like. The form for the reviews only requires a title, description, and rating number for what they think about the car.
 ![ReviewCar](https://github.com/JairoCal/RentMyRide/blob/main/wiki_images/ReviewCar.png)
